@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ley's LET 2025 English Major — Mixed (120 items)</title>
+<meta name="theme-color" content="#0f172a">
+<style>
+  :root {
+    --bg: #fff5fa; /* light blush pink */
+    --panel: #ffe6f0; /* soft pastel pink */
+    --text: #4a2c3f; /* deep rose brown for good contrast */
+    --muted: #b07285; /* muted rose */
+    --accent: #ff8ac9; /* bright pink */
+    --accent-2: #ffb6d9; /* lighter pink */
+    --accent-3: #b8e3d0; /* mint green */
+    --danger: #ff5f87; /* warm pink-red */
+    --warn: #ffb347; /* soft orange */
+    --border: rgba(255, 105, 180, 0.2); /* light pink border */
+    --radius: 16px;
+    --shadow: 0 10px 28px rgba(255, 192, 203, 0.4); /* soft pink shadow */
+  }
+  * { box-sizing: border-box }
+  body {
+    margin: 0; 
+    font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Arial;
+    color: var(--text);
+    background:
+      radial-gradient(1200px 700px at -10% -10%, #ffe6f0 0, transparent 60%),
+      radial-gradient(1200px 700px at 110% 10%, #fff0f7 0, transparent 60%),
+      var(--bg);
+    min-height: 100dvh; padding: 20px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .app { width: min(1100px, 100%); }
+  .card {
+    background:
+      linear-gradient(180deg, rgba(255, 255, 255, .7), rgba(255, 255, 255, 0)) padding-box,
+      linear-gradient(180deg, rgba(255, 192, 203, .2), rgba(255, 182, 193, .05)) border-box;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+  header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 16px 18px; 
+    border-bottom: 1px solid var(--border); 
+    background: rgba(255, 240, 245, .8);
+  }
+  .brand { display: flex; align-items: center; gap: 12px; font-weight: 800; letter-spacing: .3px; color: var(--accent); }
+  .brand svg { width: 28px; height: 28px; }
+  .p24 { padding: 24px; }
+  .grid { display: grid; gap: 14px; }
+  .grid-2 { grid-template-columns: 1fr 1fr; }
+  @media (max-width: 820px) { .grid-2 { grid-template-columns: 1fr; } }
+  select, input[type="number"], button {
+    background: #fff0f7; color: var(--text); border: 1px solid var(--border); border-radius: 12px; padding: 10px 12px; font-weight: 600;
+  }
+  button { cursor: pointer; transition: .15s transform ease; }
+  button:hover { transform: translateY(-1px); }
+  .btn-primary { background: linear-gradient(180deg, var(--accent), #ff66b2); border-color: transparent; color: white; }
+  .btn-success { background: linear-gradient(180deg, var(--accent-3), #7ed9b8); border-color: transparent; color: #1f4d3a; }
+  .btn-danger { background: linear-gradient(180deg, var(--danger), #ff3366); border-color: transparent; color: white; }
+  .pill { display: inline-flex; gap: 8px; align-items: center; background: #ffeaf4; border: 1px solid var(--border); padding: 6px 10px; border-radius: 999px; font-size: 13px; color: var(--text); }
+  .progress { height: 8px; border-radius: 999px; background: #ffeaf4; border: 1px solid var(--border); overflow: hidden; }
+  .progress > div { height: 100%; width: 0; background: linear-gradient(90deg, var(--accent), var(--accent-2)); }
+  .qnav { display: flex; gap: 8px; flex-wrap: wrap; max-height: 180px; overflow: auto; }
+  .qbtn { min-width: 36px; height: 36px; border-radius: 10px; border: 1px solid var(--border); background: #fff0f7; color: var(--text); font-weight: 700; }
+  .qbtn.active { outline: 2px solid var(--accent); }
+  .qbtn.answered { background: #ffd6e9; }
+  .qbtn.flagged { border-color: var(--warn); }
+  .choice { display: flex; gap: 10px; align-items: flex-start; border: 1px solid var(--border); padding: 12px; border-radius: 12px; background: #fff0f7; cursor: pointer; user-select: none; }
+  .choice.correct { outline: 2px solid var(--accent-3); }
+  .choice.wrong { outline: 2px solid var(--danger); }
+  .small { font-size: 12px; color: var(--muted); }
+  .footerbar { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 12px 16px; border-top: 1px solid var(--border); background: #ffeaf4; position: sticky; bottom: 0; }
+  .kpi { background: #ffeaf4; border: 1px solid var(--border); border-radius: 12px; padding: 14px; }
+  .hidden { display: none !important; }
+</style>
+</head>
+<body>
+<div class="app card">
+  <header>
+    <div class="brand">
+<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+  <rect width="64" height="64" rx="12" fill="#b23a6f"/>
+  <path d="M45 19L23 41l-6 2 2-6 22-22 4 4z" fill="#e09e38"/>
+  <path d="M47 17l-4-4 2-2a2 2 0 0 1 3 0l1 1a2 2 0 0 1 0 3l-2 2z" fill="#f17ca3"/>
+  <path d="M23 41l-4 4" stroke="#f8cde0" stroke-width="2" stroke-linecap="round"/>
+</svg>
+      <div>Ley's LET 2025 English Major — Mixed (120 items)</div>
+    </div>
+    <div class="pill"><span id="timer">00:00</span> <span id="timer-label" class="small">elapsed</span></div>
+  </header>
+
+  <section id="setup" class="p24">
+    <h2 style="margin:0 0 8px 0">Create Your Mock</h2>
+    <p class="small">Choose topics (or All), number of questions, and timer. Questions and choices are shuffled.</p>
+    <div class="grid grid-2" style="margin:12px 0 0 0">
+      <div>
+        <label class="small">Topic</label>
+        <select id="topic">
+          <option value="All">All Topics</option>
+          <option value="Grammar">Grammar</option>
+          <option value="Literature">Literature</option>
+          <option value="Linguistics">Linguistics</option>
+          <option value="Speech & Communication">Speech & Communication</option>
+          <option value="Reading & Writing">Reading & Writing</option>
+        </select>
+      </div>
+      <div>
+        <label class="small">Number of Questions</label>
+        <input type="number" id="count" min="10" max="120" value="60">
+      </div>
+    </div>
+    <div class="grid grid-2">
+      <div>
+        <label class="small">Timer (minutes, 0 = no timer)</label>
+        <input type="number" id="minutes" min="0" max="240" value="45">
+      </div>
+      <div style="display:flex; align-items:flex-end; gap:10px">
+        <button id="btn-start" class="btn-primary">Start Mock</button>
+        <button id="btn-continue" class="hidden">Continue</button>
+        <button id="btn-import">Use Custom JSON</button>
+      </div>
+    </div>
+    <p class="small">Shortcuts: <b>1-4</b> answer, <b>N</b> next, <b>P</b> previous, <b>F</b> flag, <b>R</b> review mode.</p>
+    <input type="file" id="file-input" accept=".json" class="hidden">
+  </section>
+
+  <section id="quiz" class="hidden">
+    <div class="p24">
+      <div style="display:flex; align-items:center; justify-content:space-between; gap:10px">
+        <div>
+          <h2 id="quiz-title" style="margin:0"></h2>
+          <div class="small" id="quiz-sub"></div>
+        </div>
+        <div style="min-width:220px">
+          <div class="progress"><div id="progress-bar"></div></div>
+        </div>
+      </div>
+      <div style="display:flex; gap:16px; margin-top:14px">
+        <div style="flex:1">
+          <div id="qwrap" class="grid"></div>
+        </div>
+        <aside style="width:280px">
+          <div class="kpi">
+            <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:8px">
+              <div class="small">Question Navigator</div>
+              <button id="btn-toggle-review">Review: Off</button>
+            </div>
+            <div id="qnav" class="qnav"></div>
+          </div>
+        </aside>
+      </div>
+    </div>
+    <div class="footerbar">
+      <div>
+        <button id="btn-prev">← Prev</button>
+        <button id="btn-next">Next →</button>
+        <button id="btn-flag">Flag</button>
+        <button id="btn-clear">Clear</button>
+      </div>
+      <div>
+        <button id="btn-submit" class="btn-success">Submit</button>
+        <button id="btn-exit" class="btn-danger">Exit</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="results" class="hidden p24">
+    <div style="display:flex; align-items:center; justify-content:space-between; gap:10px">
+      <h2 style="margin:0">Results</h2>
+      <div>
+        <button id="btn-review-missed">Review Missed</button>
+        <button id="btn-new" class="btn-primary">New Mock</button>
+      </div>
+    </div>
+    <div class="grid grid-2" style="margin-top:12px">
+      <div class="kpi"><div class="small">Score</div><div style="font-size:28px; font-weight:800"><span id="res-score">0</span> / <span id="res-total">0</span></div></div>
+      <div class="kpi"><div class="small">Accuracy</div><div style="font-size:28px; font-weight:800" id="res-acc">0%</div></div>
+    </div>
+    <div style="margin-top:14px">
+      <div class="small">Time Used</div>
+      <div class="kpi" style="margin-top:6px"><span id="res-time" style="font-size:22px; font-weight:800">00:00</span></div>
+    </div>
+    <div style="margin-top:16px">
+      <div class="small">Topic Breakdown</div>
+      <div id="res-breakdown" class="grid" style="margin-top:8px; grid-template-columns:repeat(auto-fit,minmax(220px,1fr))"></div>
+    </div>
+  </section>
+</div>
+
+<script>
+// Embedded 120-item bank (from your previous build)
+const BANK = {"title": "LET 2025 English Major — Mixed (120 items)", "exportedAt": "2025-08-13T05:04:45.330686Z", "items": [{"question": "Identify the correctly placed modifier.", "choices": ["She almost drove her kids to school every day.", "She drove her kids to school almost every day.", "She drove almost her kids to school every day.", "Almost she drove her kids to school every day."], "answer": "She drove her kids to school almost every day.", "explanation": "Place 'almost' next to the word it modifies: 'every day'.", "topic": "Grammar"}, {"question": "Skimming is best used to:", "choices": ["Find specific facts", "Get the main idea quickly", "Evaluate bias", "Memorize details"], "answer": "Get the main idea quickly", "explanation": "Skimming provides a rapid sense of main points.", "topic": "Reading & Writing"}, {"question": "Identify the best supporting evidence choice (16).", "choices": ["An anecdote without data", "Irrelevant statistics", "Peer‑reviewed study with data", "Personal opinion"], "answer": "Peer‑reviewed study with data", "explanation": "Empirical, peer‑reviewed sources are strong evidence.", "topic": "Reading & Writing"}, {"question": "Choose the best visual aid principle (15).", "choices": ["Use many fonts and colors", "Keep slides simple and readable", "Fill slides with paragraphs", "Avoid images entirely"], "answer": "Keep slides simple and readable", "explanation": "Clarity and simplicity increase audience comprehension.", "topic": "Speech & Communication"}, {"question": "Identify the best supporting evidence choice (13).", "choices": ["An anecdote without data", "Irrelevant statistics", "Peer‑reviewed study with data", "Personal opinion"], "answer": "Peer‑reviewed study with data", "explanation": "Empirical, peer‑reviewed sources are strong evidence.", "topic": "Reading & Writing"}, {"question": "Who wrote 'Paradise Lost'?", "choices": ["John Milton", "Geoffrey Chaucer", "John Donne", "Alexander Pope"], "answer": "John Milton", "explanation": "Milton's epic poem explores the Fall of Man.", "topic": "Literature"}, {"question": "Identify the best supporting evidence choice (14).", "choices": ["An anecdote without data", "Irrelevant statistics", "Peer‑reviewed study with data", "Personal opinion"], "answer": "Peer‑reviewed study with data", "explanation": "Empirical, peer‑reviewed sources are strong evidence.", "topic": "Reading & Writing"}, {"question": "Coherence in paragraphs is improved by:", "choices": ["Random examples", "Repetition without purpose", "Logical order and transitions", "Length alone"], "answer": "Logical order and transitions", "explanation": "Organized sequencing and cohesive ties enhance coherence.", "topic": "Reading & Writing"}, {"question": "Identify the best supporting evidence choice (17).", "choices": ["An anecdote without data", "Irrelevant statistics", "Peer‑reviewed study with data", "Personal opinion"], "answer": "Peer‑reviewed study with data", "explanation": "Empirical, peer‑reviewed sources are strong evidence.", "topic": "Reading & Writing"}, {"question": "Vocal variety helps maintain:", "choices": ["Audience attention", "Slide count", "Room temperature", "Lighting"], "answer": "Audience attention", "explanation": "Changes in pitch, rate, and volume keep interest.", "topic": "Speech & Communication"}, {"question": "Who wrote 'Don Quixote'?", "choices": ["Miguel de Cervantes", "Leo Tolstoy", "Virginia Woolf", "J.D. Salinger"], "answer": "Miguel de Cervantes", "explanation": "Foundational modern novel parodying chivalry.", "topic": "Literature"}, {"question": "Which best describes 'fossilization'?", "choices": ["Accelerated learning", "Permanent stabilization of errors", "Native-like mastery", "Temporary forgetting"], "answer": "Permanent stabilization of errors", "explanation": "Learner errors become fixed despite exposure.", "topic": "Linguistics"}, {"question": "'Ethos' appeals to:", "choices": ["Logic", "Emotion", "Credibility/character", "Style"], "answer": "Credibility/character", "explanation": "Aristotle’s rhetorical triangle: ethos, pathos, logos.", "topic": "Reading & Writing"}, {"question": "Which novel opens with 'Call me Ishmael.'?", "choices": ["Moby-Dick", "The Old Man and the Sea", "The Scarlet Letter", "The Odyssey"], "answer": "Moby-Dick", "explanation": "Melville's classic about obsession and the white whale.", "topic": "Literature"}, {"question": "Pick the correct comparison.", "choices": ["She is the most happiest player.", "She is happier than anyone in the team.", "She is more happier than anyone.", "She is happiest than anyone."], "answer": "She is happier than anyone in the team.", "explanation": "Use the comparative ('happier') with 'than'; avoid double comparatives.", "topic": "Grammar"}, {"question": "Which theory emphasizes input and interaction in acquisition?", "choices": ["Behaviorism", "Nativism", "Interactionist", "Monitor Model"], "answer": "Interactionist", "explanation": "Interactionist views stress social interaction and input.", "topic": "Linguistics"}, {"question": "The logical fallacy that attacks the person, not the argument:", "choices": ["Straw man", "Ad hominem", "Red herring", "False cause"], "answer": "Ad hominem", "explanation": "Ad hominem targets the speaker rather than the claim.", "topic": "Reading & Writing"}, {"question": "Identify the best supporting evidence choice (18).", "choices": ["An anecdote without data", "Irrelevant statistics", "Peer‑reviewed study with data", "Personal opinion"], "answer": "Peer‑reviewed study with data", "explanation": "Empirical, peer‑reviewed sources are strong evidence.", "topic": "Reading & Writing"}, {"question": "Who wrote 'Beloved'?", "choices": ["Toni Morrison", "Leo Tolstoy", "Virginia Woolf", "J.D. Salinger"], "answer": "Toni Morrison", "explanation": "Explores memory and slavery's trauma.", "topic": "Literature"}, {"question": "Which example shows code-switching?", "choices": ["'He go school.'", "'He goes.'", "'Punta tayo later, okay?'", "'Went he to school.'"], "answer": "'Punta tayo later, okay?'", "explanation": "Alternating between languages within a discourse.", "topic": "Linguistics"}, {"question": "Which sentence correctly uses 'fewer' and 'less'?", "choices": ["There are less apples in the basket today.", "I have fewer money than yesterday.", "There are fewer apples and less sugar left.", "There are less apples and fewer sugar left."], "answer": "There are fewer apples and less sugar left.", "explanation": "'Fewer' with count nouns (apples); 'less' with mass nouns (sugar).", "topic": "Grammar"}, {"question": "'Morpheme' is best defined as:", "choices": ["A smallest unit of meaning", "A smallest unit of sound", "Word order rule", "Sentence meaning"], "answer": "A smallest unit of meaning", "explanation": "Morphemes carry meaning (e.g., 'un-', 'dog', '-s').", "topic": "Linguistics"}, {"question": "Identify the best supporting evidence choice (19).", "choices": ["An anecdote without data", "Irrelevant statistics", "Peer‑reviewed study with data", "Personal opinion"], "answer": "Peer‑reviewed study with data", "explanation": "Empirical, peer‑reviewed sources are strong evidence.", "topic": "Reading & Writing"}, {"question": "In persuasive speaking, 'call to action' should be:", "choices": ["Vague", "Optional", "Specific and feasible", "Hidden"], "answer": "Specific and feasible", "explanation": "Give clear, attainable steps the audience can take.", "topic": "Speech & Communication"}, {"question": "Pick the sentence with the correct verb tense sequence.", "choices": ["By the time she arrived, we eat dinner.", "By the time she arrives, we had eaten dinner.", "By the time she arrived, we had eaten dinner.", "By the time she had arrived, we eat dinner."], "answer": "By the time she arrived, we had eaten dinner.", "explanation": "Use past perfect for the earlier action completed before another past action.", "topic": "Grammar"}, {"question": "Choose the sentence with parallel structure.", "choices": ["The committee valued honesty, being punctual, and hard work.", "The committee valued honesty, punctuality, and hard work.", "The committee valued to be honest, being punctual, and hard work.", "The committee valued honesty, to be punctual, and working hard."], "answer": "The committee valued honesty, punctuality, and hard work.", "explanation": "Keep grammatical forms parallel: three nouns—honesty, punctuality, hard work.", "topic": "Grammar"}, {"question": "'Schema' in reading refers to:", "choices": ["Phonetic decoding", "Background knowledge structures", "Syntax parsing", "Morphological parsing"], "answer": "Background knowledge structures", "explanation": "Schema theory: prior knowledge aids comprehension.", "topic": "Linguistics"}, {"question": "Which best defines 'register'?", "choices": ["Pronunciation pattern", "Level of formality in language use", "Word origin", "Syntactic ambiguity"], "answer": "Level of formality in language use", "explanation": "Register varies with context and audience.", "topic": "Linguistics"}, {"question": "Choose the sentence with correct verb form (27).", "choices": ["She don't like spicy food.", "She doesn't like spicy food.", "She do not likes spicy food.", "She didn't likes spicy food."], "answer": "She doesn't like spicy food.", "explanation": "Third-person singular present uses 'doesn't' + base verb.", "topic": "Grammar"}, {"question": "A thesis statement should be:", "choices": ["General and vague", "Specific and arguable", "A question", "A summary of references"], "answer": "Specific and arguable", "explanation": "A strong thesis presents a clear, debatable claim.", "topic": "Reading & Writing"}, {"question": "Choose the sentence with correct verb form (22).", "choices": ["She don't like spicy food.", "She doesn't like spicy food.", "She do not likes spicy food.", "She didn't likes spicy food."], "answer": "She doesn't like spicy food.", "explanation": "Third-person singular present uses 'doesn't' + base verb.", "topic": "Grammar"}, {"question": "Who wrote 'The Woman Who Had Two Navels'?", "choices": ["Nick Joaquin", "Leo Tolstoy", "Virginia Woolf", "J.D. Salinger"], "answer": "Nick Joaquin", "explanation": "Explores identity and history in the Philippines.", "topic": "Literature"}, {"question": "Magical realism is strongly associated with:", "choices": ["Gabriel García Márquez", "Haruki Murakami", "Jorge Luis Borges", "Isabel Allende"], "answer": "Gabriel García Márquez", "explanation": "Márquez popularized the mode in Latin American literature.", "topic": "Literature"}, {"question": "Who wrote 'To Kill a Mockingbird'?", "choices": ["Harper Lee", "Leo Tolstoy", "Virginia Woolf", "J.D. Salinger"], "answer": "Harper Lee", "explanation": "On racial injustice in the American South.", "topic": "Literature"}, {"question": "Chomsky’s LAD supports:", "choices": ["Behaviorist imitation", "Universal Grammar", "Audiolingualism", "Constructivism"], "answer": "Universal Grammar", "explanation": "Innate predisposition for language acquisition.", "topic": "Linguistics"}, {"question": "The persona who addresses the audience alone on stage is delivering a:", "choices": ["Monologue", "Aside", "Soliloquy", "Chorus"], "answer": "Soliloquy", "explanation": "A character speaks inner thoughts aloud, usually alone.", "topic": "Literature"}, {"question": "IPA symbol /θ/ corresponds to:", "choices": ["Voiced dental fricative", "Voiceless dental fricative", "Voiced alveolar stop", "Voiceless alveolar fricative"], "answer": "Voiceless dental fricative", "explanation": "Like 'th' in 'think', voiceless dental fricative.", "topic": "Linguistics"}, {"question": "Which is NOT a Shakespearean tragedy?", "choices": ["Othello", "King Lear", "Much Ado About Nothing", "Macbeth"], "answer": "Much Ado About Nothing", "explanation": "It's a comedy, not a tragedy.", "topic": "Literature"}, {"question": "The study of the sound system of a language is:", "choices": ["Phonetics", "Morphology", "Phonology", "Syntax"], "answer": "Phonology", "explanation": "Phonology analyzes how sounds function within a language.", "topic": "Linguistics"}, {"question": "'Noli Me Tangere' is primarily in:", "choices": ["English", "Spanish", "Tagalog", "French"], "answer": "Spanish", "explanation": "Rizal's novel critiqued Spanish colonial rule; written in Spanish.", "topic": "Literature"}, {"question": "Identify the figure of speech: 'The classroom was a zoo.'", "choices": ["Metaphor", "Simile", "Hyperbole", "Oxymoron"], "answer": "Metaphor", "explanation": "Direct comparison without 'like' or 'as'.", "topic": "Literature"}, {"question": "Identify the figure of speech: 'The classroom was a zoo.'", "choices": ["Metaphor", "Simile", "Hyperbole", "Oxymoron"], "answer": "Metaphor", "explanation": "Direct comparison without 'like' or 'as'.", "topic": "Literature"}, {"question": "Vygotsky stressed:", "choices": ["Reinforcement schedules", "Input hypothesis", "Social interaction and scaffolding", "Audiolingual drills"], "answer": "Social interaction and scaffolding", "explanation": "Learning occurs through mediated social interaction.", "topic": "Linguistics"}, {"question": "Choose the sentence with correct verb form (23).", "choices": ["She don't like spicy food.", "She doesn't like spicy food.", "She do not likes spicy food.", "She didn't likes spicy food."], "answer": "She doesn't like spicy food.", "explanation": "Third-person singular present uses 'doesn't' + base verb.", "topic": "Grammar"}, {"question": "Krashen's 'affective filter' refers to:", "choices": ["Emotional barriers to acquisition", "Grammar accuracy monitor", "Pronunciation practice", "Vocabulary depth"], "answer": "Emotional barriers to acquisition", "explanation": "High anxiety can block language intake.", "topic": "Linguistics"}, {"question": "Pragmatics studies:", "choices": ["Literal sentence meaning", "Language in use and context", "Historical change", "Word formation"], "answer": "Language in use and context", "explanation": "Pragmatics examines meaning in context (implicature, speech acts).", "topic": "Linguistics"}, {"question": "Choose the sentence with correct verb form (24).", "choices": ["She don't like spicy food.", "She doesn't like spicy food.", "She do not likes spicy food.", "She didn't likes spicy food."], "answer": "She doesn't like spicy food.", "explanation": "Third-person singular present uses 'doesn't' + base verb.", "topic": "Grammar"}, {"question": "Which is a Petrarchan sonnet feature?", "choices": ["Shakespearean rhyme scheme", "Octave–sestet structure", "Blank verse", "Villanelle refrain"], "answer": "Octave–sestet structure", "explanation": "Petrarchan sonnets have an octave (abbaabba) and sestet.", "topic": "Literature"}, {"question": "Identify the best supporting evidence choice (20).", "choices": ["An anecdote without data", "Irrelevant statistics", "Peer‑reviewed study with data", "Personal opinion"], "answer": "Peer‑reviewed study with data", "explanation": "Empirical, peer‑reviewed sources are strong evidence.", "topic": "Reading & Writing"}, {"question": "Choose the best visual aid principle (13).", "choices": ["Use many fonts and colors", "Keep slides simple and readable", "Fill slides with paragraphs", "Avoid images entirely"], "answer": "Keep slides simple and readable", "explanation": "Clarity and simplicity increase audience comprehension.", "topic": "Speech & Communication"}, {"question": "Choose the sentence with correct verb form (25).", "choices": ["She don't like spicy food.", "She doesn't like spicy food.", "She do not likes spicy food.", "She didn't likes spicy food."], "answer": "She doesn't like spicy food.", "explanation": "Third-person singular present uses 'doesn't' + base verb.", "topic": "Grammar"}, {"question": "Which sentence avoids a dangling modifier?", "choices": ["Walking down the street, the flowers looked beautiful.", "Walking down the street, I saw beautiful flowers.", "Walking down the street, beautiful flowers were seen.", "Walking down the street, there were beautiful flowers."], "answer": "Walking down the street, I saw beautiful flowers.", "explanation": "The doer of the action (I) must follow the modifier to avoid a dangling construction.", "topic": "Grammar"}, {"question": "Identify the figure of speech: 'The classroom was a zoo.'", "choices": ["Metaphor", "Simile", "Hyperbole", "Oxymoron"], "answer": "Metaphor", "explanation": "Direct comparison without 'like' or 'as'.", "topic": "Literature"}, {"question": "Identify the best supporting evidence choice (11).", "choices": ["An anecdote without data", "Irrelevant statistics", "Peer‑reviewed study with data", "Personal opinion"], "answer": "Peer‑reviewed study with data", "explanation": "Empirical, peer‑reviewed sources are strong evidence.", "topic": "Reading & Writing"}, {"question": "Which sentence uses the subjunctive mood correctly?", "choices": ["If I was you, I will apologize.", "If I were you, I would apologize.", "If I am you, I apologize.", "If I would be you, I will apologize."], "answer": "If I were you, I would apologize.", "explanation": "The hypothetical condition uses 'were' + 'would' in the result clause.", "topic": "Grammar"}, {"question": "Who wrote 'The Metamorphosis'?", "choices": ["Franz Kafka", "Leo Tolstoy", "Virginia Woolf", "J.D. Salinger"], "answer": "Franz Kafka", "explanation": "Surreal tale of transformation and alienation.", "topic": "Literature"}, {"question": "Choose the best visual aid principle (19).", "choices": ["Use many fonts and colors", "Keep slides simple and readable", "Fill slides with paragraphs", "Avoid images entirely"], "answer": "Keep slides simple and readable", "explanation": "Clarity and simplicity increase audience comprehension.", "topic": "Speech & Communication"}, {"question": "'The Love Song of J. Alfred Prufrock' begins with an epigraph from:", "choices": ["Dante", "Homer", "Virgil", "Ovid"], "answer": "Dante", "explanation": "From Dante’s Inferno (Guido da Montefeltro).", "topic": "Literature"}, {"question": "Identify the error: 'Neither the teachers nor the principal have arrived.'", "choices": ["Neither", "teachers", "have", "arrived"], "answer": "have", "explanation": "When subjects are joined by 'neither…nor', the verb agrees with the nearer subject. 'Principal' is singular → 'has arrived'.", "topic": "Grammar"}, {"question": "Which is a signpost in a presentation?", "choices": ["'First, let's define…'", "Wearing formal attire", "Using a louder voice", "Pausing before slides"], "answer": "'First, let's define…'", "explanation": "Verbal signposts cue structure and transitions.", "topic": "Speech & Communication"}, {"question": "Which is an example of assimilation?", "choices": ["Input → imprint", "Handbag → hambag", "Photograph → photo", "Child → children"], "answer": "Handbag → hambag", "explanation": "Adjacent sounds influence each other in connected speech.", "topic": "Linguistics"}, {"question": "Which acquisition stage comes first?", "choices": ["Telegraphic speech", "Two-word stage", "Babbling", "Holophrastic"], "answer": "Babbling", "explanation": "Babbling precedes single-word (holophrastic) stage.", "topic": "Linguistics"}, {"question": "'Things Fall Apart' is set in:", "choices": ["Kenya", "Nigeria", "Ghana", "Ethiopia"], "answer": "Nigeria", "explanation": "Achebe’s novel portrays Igbo life amid colonial change.", "topic": "Literature"}, {"question": "Who wrote 'The Iliad'?", "choices": ["Homer", "Leo Tolstoy", "Virginia Woolf", "J.D. Salinger"], "answer": "Homer", "explanation": "Epic about the Trojan War.", "topic": "Literature"}, {"question": "'A Rose for Emily' was written by:", "choices": ["Ernest Hemingway", "William Faulkner", "F. Scott Fitzgerald", "Flannery O'Connor"], "answer": "William Faulkner", "explanation": "A Southern Gothic short story about isolation and change.", "topic": "Literature"}, {"question": "Choose the sentence with correct agreement for the word 'news'.", "choices": ["News is a difficult subject.", "News are a difficult subject.", "The news are a difficult subject.", "The news seem difficult subjects."], "answer": "News is a difficult subject.", "explanation": "'news' is a singular noun in form and meaning → takes singular verb.", "topic": "Grammar"}, {"question": "'Illocutionary act' refers to:", "choices": ["Literal utterance", "Intended function of an utterance", "Physical act of speaking", "Effect on listener"], "answer": "Intended function of an utterance", "explanation": "Illocution concerns the speaker’s intention (e.g., requesting).", "topic": "Linguistics"}, {"question": "Choose the correctly capitalized title in sentence case.", "choices": ["We Discussed 'The Effects Of Globalization'.", "We discussed 'The Effects of Globalization'.", "We discussed 'the Effects of Globalization'.", "We discussed 'The effects of globalization'."], "answer": "We discussed 'The Effects of Globalization'.", "explanation": "In title case, capitalize major words; 'of' is a minor word and lowercase.", "topic": "Grammar"}, {"question": "Identify the figure of speech: 'The classroom was a zoo.'", "choices": ["Metaphor", "Simile", "Hyperbole", "Oxymoron"], "answer": "Metaphor", "explanation": "Direct comparison without 'like' or 'as'.", "topic": "Literature"}, {"question": "Choose the correctly hyphenated compound modifier.", "choices": ["A well known author spoke.", "A well-known author spoke.", "A well known-author spoke.", "A well-known-author spoke."], "answer": "A well-known author spoke.", "explanation": "Compound modifiers before a noun are hyphenated: 'well-known author'.", "topic": "Grammar"}, {"question": "Who wrote 'The Waste Land'?", "choices": ["W.B. Yeats", "T.S. Eliot", "Ezra Pound", "Dylan Thomas"], "answer": "T.S. Eliot", "explanation": "Modernist landmark published in 1922.", "topic": "Literature"}, {"question": "Harlem Renaissance poet known for jazz rhythms:", "choices": ["Langston Hughes", "Robert Hayden", "Gwendolyn Brooks", "Countee Cullen"], "answer": "Langston Hughes", "explanation": "Hughes infused poetry with jazz and Black vernacular.", "topic": "Literature"}, {"question": "Who wrote 'The Raven'?", "choices": ["Edgar Allan Poe", "Leo Tolstoy", "Virginia Woolf", "J.D. Salinger"], "answer": "Edgar Allan Poe", "explanation": "Use of internal rhyme and refrain sets mood.", "topic": "Literature"}, {"question": "Choose the sentence with correct agreement for the word 'scissors'.", "choices": ["The scissors are missing.", "The scissors is missing.", "The scissors has been missing.", "The scissors was missing."], "answer": "The scissors is missing.", "explanation": "'scissors' is treated as plural and takes a plural verb.", "topic": "Grammar"}, {"question": "Who wrote 'Ulysses'?", "choices": ["James Joyce", "Leo Tolstoy", "Virginia Woolf", "J.D. Salinger"], "answer": "James Joyce", "explanation": "Stream-of-consciousness modernist novel.", "topic": "Literature"}, {"question": "Eye contact in public speaking primarily builds:", "choices": ["Ethos", "Logos", "Pathos", "Kairos"], "answer": "Ethos", "explanation": "Eye contact supports credibility and connection (ethos).", "topic": "Speech & Communication"}, {"question": "Choose the best visual aid principle (11).", "choices": ["Use many fonts and colors", "Keep slides simple and readable", "Fill slides with paragraphs", "Avoid images entirely"], "answer": "Keep slides simple and readable", "explanation": "Clarity and simplicity increase audience comprehension.", "topic": "Speech & Communication"}, {"question": "Choose the best visual aid principle (20).", "choices": ["Use many fonts and colors", "Keep slides simple and readable", "Fill slides with paragraphs", "Avoid images entirely"], "answer": "Keep slides simple and readable", "explanation": "Clarity and simplicity increase audience comprehension.", "topic": "Speech & Communication"}, {"question": "In the Shannon–Weaver model, 'noise' refers to:", "choices": ["Audience applause", "Any interference with the message", "Speaker notes", "Microphone stand"], "answer": "Any interference with the message", "explanation": "Noise includes physical, semantic, and psychological interference.", "topic": "Speech & Communication"}, {"question": "Choose the sentence with correct verb form (20).", "choices": ["She don't like spicy food.", "She doesn't like spicy food.", "She do not likes spicy food.", "She didn't likes spicy food."], "answer": "She doesn't like spicy food.", "explanation": "Third-person singular present uses 'doesn't' + base verb.", "topic": "Grammar"}, {"question": "Which is the best topic sentence?", "choices": ["Many issues exist.", "Pollution affects urban health in three key ways.", "Details follow below.", "It is what it is."], "answer": "Pollution affects urban health in three key ways.", "explanation": "A topic sentence should preview a clear, specific focus.", "topic": "Reading & Writing"}, {"question": "The Filipino epic 'Biag ni Lam-ang' originates from:", "choices": ["Ilocano", "Cebuano", "Bikolano", "Waray"], "answer": "Ilocano", "explanation": "An Ilocano epic detailing Lam-ang’s exploits.", "topic": "Literature"}, {"question": "The fallacy of 'false dilemma' presents:", "choices": ["Only two options as if the only choices", "A distorted version of opponent's argument", "A cause from mere correlation", "An irrelevant diversion"], "answer": "Only two options as if the only choices", "explanation": "False dilemmas limit complex issues to two extremes.", "topic": "Speech & Communication"}, {"question": "Choose the sentence with correct verb form (21).", "choices": ["She don't like spicy food.", "She doesn't like spicy food.", "She do not likes spicy food.", "She didn't likes spicy food."], "answer": "She doesn't like spicy food.", "explanation": "Third-person singular present uses 'doesn't' + base verb.", "topic": "Grammar"}, {"question": "Which sentence observes correct subject–verb agreement?", "choices": ["The list of items are on the table.", "The list of items is on the table.", "The lists of item is on the table.", "The list of item are on the table."], "answer": "The list of items is on the table.", "explanation": "With 'list' as the head noun (singular), the verb should be singular: 'is'.", "topic": "Grammar"}, {"question": "Choose the best visual aid principle (16).", "choices": ["Use many fonts and colors", "Keep slides simple and readable", "Fill slides with paragraphs", "Avoid images entirely"], "answer": "Keep slides simple and readable", "explanation": "Clarity and simplicity increase audience comprehension.", "topic": "Speech & Communication"}, {"question": "'Haptics' in communication refers to:", "choices": ["Touch behavior", "Space and distance", "Eye behavior", "Time management"], "answer": "Touch behavior", "explanation": "Haptics is the study of touch in communication.", "topic": "Speech & Communication"}, {"question": "Identify the figure of speech: 'The classroom was a zoo.'", "choices": ["Metaphor", "Simile", "Hyperbole", "Oxymoron"], "answer": "Metaphor", "explanation": "Direct comparison without 'like' or 'as'.", "topic": "Literature"}, {"question": "Choose the best visual aid principle (14).", "choices": ["Use many fonts and colors", "Keep slides simple and readable", "Fill slides with paragraphs", "Avoid images entirely"], "answer": "Keep slides simple and readable", "explanation": "Clarity and simplicity increase audience comprehension.", "topic": "Speech & Communication"}, {"question": "Who wrote 'Dekada '70'?", "choices": ["Lualhati Bautista", "Leo Tolstoy", "Virginia Woolf", "J.D. Salinger"], "answer": "Lualhati Bautista", "explanation": "Novel about martial law-era Philippines.", "topic": "Literature"}, {"question": "Impromptu speaking is characterized by:", "choices": ["Memorized delivery", "Read verbatim", "Minimal preparation", "Group delivery"], "answer": "Minimal preparation", "explanation": "Impromptu relies on quick organization and clarity.", "topic": "Speech & Communication"}, {"question": "'Plagiarism' is:", "choices": ["Using your own ideas", "Accidentally learning something", "Using others’ work without proper attribution", "Summarizing in your own words with citation"], "answer": "Using others’ work without proper attribution", "explanation": "Always cite sources for borrowed ideas or words.", "topic": "Reading & Writing"}, {"question": "A credible academic source typically includes:", "choices": ["Author and affiliation", "Publication venue and date", "Citations/references", "All of the above"], "answer": "All of the above", "explanation": "Authority, venue, and citations indicate credibility.", "topic": "Reading & Writing"}, {"question": "Identify the best supporting evidence choice (12).", "choices": ["An anecdote without data", "Irrelevant statistics", "Peer‑reviewed study with data", "Personal opinion"], "answer": "Peer‑reviewed study with data", "explanation": "Empirical, peer‑reviewed sources are strong evidence.", "topic": "Reading & Writing"}, {"question": "Choose the sentence with correct verb form (26).", "choices": ["She don't like spicy food.", "She doesn't like spicy food.", "She do not likes spicy food.", "She didn't likes spicy food."], "answer": "She doesn't like spicy food.", "explanation": "Third-person singular present uses 'doesn't' + base verb.", "topic": "Grammar"}, {"question": "Communicative competence includes NOT only grammar but also:", "choices": ["Vocabulary tests", "Strategic and sociolinguistic skills", "Spelling rules", "Translation skill"], "answer": "Strategic and sociolinguistic skills", "explanation": "Hymes’ model covers grammatical, sociolinguistic, discourse, and strategic competencies.", "topic": "Linguistics"}, {"question": "A speaker adapts content to audience needs; this is:", "choices": ["Encoding", "Decoding", "Audience analysis", "Nonverbal leakage"], "answer": "Audience analysis", "explanation": "Tailoring message to audience demographics and psychographics.", "topic": "Speech & Communication"}, {"question": "Which instructional approach emphasizes real-life communication?", "choices": ["Grammar-Translation", "Direct Method", "Audiolingual", "Communicative Language Teaching"], "answer": "Communicative Language Teaching", "explanation": "CLT prioritizes fluency and meaningful communication.", "topic": "Linguistics"}, {"question": "Which pair shows derivational morphology?", "choices": ["play/played", "happy/happier", "teach/teacher", "dog/dogs"], "answer": "teach/teacher", "explanation": "Derivational affixes create new words or parts of speech.", "topic": "Linguistics"}, {"question": "Choose the sentence with correct verb form (30).", "choices": ["She don't like spicy food.", "She doesn't like spicy food.", "She do not likes spicy food.", "She didn't likes spicy food."], "answer": "She doesn't like spicy food.", "explanation": "Third-person singular present uses 'doesn't' + base verb.", "topic": "Grammar"}, {"question": "Choose the sentence with correct verb form (28).", "choices": ["She don't like spicy food.", "She doesn't like spicy food.", "She do not likes spicy food.", "She didn't likes spicy food."], "answer": "She doesn't like spicy food.", "explanation": "Third-person singular present uses 'doesn't' + base verb.", "topic": "Grammar"}, {"question": "Which is an example of proxemics?", "choices": ["Handshake firmness", "Intimate vs public distance zones", "Pitch variation", "Vocal fillers"], "answer": "Intimate vs public distance zones", "explanation": "Proxemics examines space and distance in interactions.", "topic": "Speech & Communication"}, {"question": "Choose the best visual aid principle (18).", "choices": ["Use many fonts and colors", "Keep slides simple and readable", "Fill slides with paragraphs", "Avoid images entirely"], "answer": "Keep slides simple and readable", "explanation": "Clarity and simplicity increase audience comprehension.", "topic": "Speech & Communication"}, {"question": "Which sentence uses the correct pronoun case?", "choices": ["It was her and I who volunteered.", "It was she and me who volunteered.", "It was she and I who volunteered.", "It was her and me who volunteered."], "answer": "It was she and I who volunteered.", "explanation": "After a linking verb, use the subjective case; with 'who' as subject of the clause, 'she and I' is correct.", "topic": "Grammar"}, {"question": "Who wrote 'The Pretenders'?", "choices": ["F. Sionil José", "Leo Tolstoy", "Virginia Woolf", "J.D. Salinger"], "answer": "F. Sionil José", "explanation": "Part of the Rosales Saga about social class.", "topic": "Literature"}, {"question": "Which is NOT a cooperative principle maxim?", "choices": ["Quantity", "Quality", "Politeness", "Relevance"], "answer": "Politeness", "explanation": "Grice’s maxims: Quantity, Quality, Relation (Relevance), Manner.", "topic": "Linguistics"}, {"question": "Choose the sentence with correct agreement for the word 'economics'.", "choices": ["Economics is a difficult subject.", "Economics are a difficult subject.", "The economics are a difficult subject.", "The economics seem difficult subjects."], "answer": "Economics is a difficult subject.", "explanation": "'economics' is a singular noun in form and meaning → takes singular verb.", "topic": "Grammar"}, {"question": "The smallest contrastive sound unit is a:", "choices": ["Allophone", "Phoneme", "Grapheme", "Syllable"], "answer": "Phoneme", "explanation": "Phonemes distinguish word meaning (e.g., /p/ vs /b/).", "topic": "Linguistics"}, {"question": "Choose the best visual aid principle (12).", "choices": ["Use many fonts and colors", "Keep slides simple and readable", "Fill slides with paragraphs", "Avoid images entirely"], "answer": "Keep slides simple and readable", "explanation": "Clarity and simplicity increase audience comprehension.", "topic": "Speech & Communication"}, {"question": "In argumentative writing, counterclaims are used to:", "choices": ["Weaken your own position", "Acknowledge and refute opposing views", "Add unrelated evidence", "Change the topic"], "answer": "Acknowledge and refute opposing views", "explanation": "Addressing counterclaims strengthens credibility.", "topic": "Reading & Writing"}, {"question": "Choose the sentence with correct agreement for the word 'politics'.", "choices": ["Politics is a difficult subject.", "Politics are a difficult subject.", "The politics are a difficult subject.", "The politics seem difficult subjects."], "answer": "Politics is a difficult subject.", "explanation": "'politics' is a singular noun in form and meaning → takes singular verb.", "topic": "Grammar"}, {"question": "Choose the best visual aid principle (17).", "choices": ["Use many fonts and colors", "Keep slides simple and readable", "Fill slides with paragraphs", "Avoid images entirely"], "answer": "Keep slides simple and readable", "explanation": "Clarity and simplicity increase audience comprehension.", "topic": "Speech & Communication"}, {"question": "Identify the sentence without a faulty pronoun reference.", "choices": ["When Maria told Ana that she passed, she was thrilled.", "When Maria told Ana the news, Ana was thrilled.", "When Maria told Ana that she passed, Maria was thrilled.", "They say that you should always do one's best."], "answer": "When Maria told Ana the news, Ana was thrilled.", "explanation": "Clear antecedent avoids ambiguity in pronoun reference.", "topic": "Grammar"}, {"question": "Choose the sentence with correct verb form (29).", "choices": ["She don't like spicy food.", "She doesn't like spicy food.", "She do not likes spicy food.", "She didn't likes spicy food."], "answer": "She doesn't like spicy food.", "explanation": "Third-person singular present uses 'doesn't' + base verb.", "topic": "Grammar"}, {"question": "'To His Coy Mistress' is by which poet?", "choices": ["Andrew Marvell", "Robert Herrick", "John Donne", "Ben Jonson"], "answer": "Andrew Marvell", "explanation": "A metaphysical poem urging carpe diem.", "topic": "Literature"}, {"question": "'The Road Not Taken' emphasizes:", "choices": ["Fate alone", "Nonconformity and choice", "Nature's indifference", "Inevitable regret"], "answer": "Nonconformity and choice", "explanation": "Frost reflects on paths chosen and their consequences.", "topic": "Literature"}, {"question": "Identify the best supporting evidence choice (15).", "choices": ["An anecdote without data", "Irrelevant statistics", "Peer‑reviewed study with data", "Personal opinion"], "answer": "Peer‑reviewed study with data", "explanation": "Empirical, peer‑reviewed sources are strong evidence.", "topic": "Reading & Writing"}, {"question": "Select the correctly punctuated sentence.", "choices": ["However we finished the project on time.", "However, we finished the project on time.", "However we finished, the project on time.", "However we, finished the project on time."], "answer": "However, we finished the project on time.", "explanation": "A conjunctive adverb at the beginning is set off by a comma.", "topic": "Grammar"}, {"question": "Select the sentence free of comma splice.", "choices": ["The class ended, everyone left.", "The class ended; everyone left.", "The class ended, and everyone left.", "Both B and C are correct."], "answer": "Both B and C are correct.", "explanation": "Use a semicolon or a comma plus coordinating conjunction to join two independent clauses.", "topic": "Grammar"}, {"question": "Which transition best signals contrast?", "choices": ["Moreover", "However", "Therefore", "For example"], "answer": "However", "explanation": "Use 'however' to indicate contrast or concession.", "topic": "Reading & Writing"}]};
+
+// Helpers
+const $ = (s, r=document)=> r.querySelector(s);
+const $$ = (s, r=document)=> [...r.querySelectorAll(s)];
+const pad = n => String(n).padStart(2, '0');
+const STORAGE = "let-eng-major-onefile-v1";
+
+const state = {
+  bankTitle: BANK.title || "LET English Major — Mixed",
+  pool: BANK.items || [],
+  items: [],
+  i: 0,
+  answers: [],
+  flags: [],
+  reviewMode: false,
+  startedAt: null,
+  timeLimitSec: 0,
+  elapsedSec: 0,
+  finished: false,
+  topic: "All"
+};
+
+function save(){ localStorage.setItem(STORAGE, JSON.stringify(state)); }
+function load(){
+  try{ return JSON.parse(localStorage.getItem(STORAGE)); }catch{ return null; }
+}
+
+function show(id){
+  ["setup","quiz","results"].forEach(s => $("#"+s).classList.add("hidden"));
+  $("#"+id).classList.remove("hidden");
+}
+
+function shuffle(arr){
+  for(let i=arr.length-1;i>0;i--){
+    const j = Math.floor(Math.random()*(i+1)); [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
+function sample(arr, k){
+  return shuffle(arr.slice()).slice(0, k);
+}
+
+let tickId = null;
+function startTimer(){
+  clearInterval(tickId);
+  tickId = setInterval(()=>{
+    state.elapsedSec++;
+    const rem = state.timeLimitSec ? Math.max(0, state.timeLimitSec - state.elapsedSec) : state.elapsedSec;
+    $("#timer").textContent = `${pad(Math.floor(rem/60))}:${pad(rem%60)}`;
+    $("#timer-label").textContent = state.timeLimitSec ? "remaining" : "elapsed";
+    if(state.timeLimitSec && rem===0){ submit(); }
+    save();
+  }, 1000);
+}
+
+function renderNav(){
+  const nav = $("#qnav"); nav.innerHTML = "";
+  state.items.forEach((_, idx)=>{
+    const b = document.createElement("button");
+    b.className = "qbtn" + (idx===state.i ? " active" : "") + (state.answers[idx]!=null? " answered": "") + (state.flags[idx]? " flagged": "");
+    b.textContent = idx+1;
+    b.addEventListener("click", ()=>{ state.i = idx; save(); renderQ(); renderNav(); });
+    nav.appendChild(b);
+  });
+}
+
+function renderQ(){
+  const item = state.items[state.i];
+  $("#quiz-title").textContent = `${state.bankTitle} — Q${state.i+1}/${state.items.length}`;
+  $("#quiz-sub").textContent = `Topic: ${item.topic}`;
+  $("#progress-bar").style.width = `${(state.answers.filter(x=>x!=null).length/state.items.length)*100}%`;
+
+  const wrap = $("#qwrap"); wrap.innerHTML = "";
+  const box = document.createElement("div");
+  box.innerHTML = `
+    <div class="small">${state.flags[state.i] ? "⚑ Flagged" : ""}</div>
+    <h3 style="margin:6px 0 0 0">${item.question}</h3>
+    <div class="grid" id="choices"></div>
+    <div id="expl" class="small" style="margin-top:8px"></div>
+  `;
+  wrap.appendChild(box);
+
+  // Build a stable shuffled presentation of choices per question
+  if(!item._order){ item._order = shuffle(item.choices.map((_,i)=>i)); }
+  const chosen = state.answers[state.i];
+  const correctIdx = item.choices.findIndex(c=>c===item.answer);
+
+  const cwrap = $("#choices");
+  item._order.forEach((idx)=>{
+    const text = item.choices[idx];
+    const label = document.createElement("label");
+    let cls = "choice";
+    if(state.reviewMode){
+      if(idx===correctIdx) cls += " correct";
+      else if(chosen===idx) cls += " wrong";
+    }
+    label.className = cls;
+    label.innerHTML = `<input type="radio" name="c"> <div>${text}</div>`;
+    if(chosen===idx) label.querySelector("input").checked = true;
+    label.addEventListener("click", ()=>{
+      if(state.reviewMode) return;
+      state.answers[state.i] = idx;
+      save(); renderNav(); renderQ();
+    });
+    cwrap.appendChild(label);
+  });
+
+  const expl = $("#expl");
+  if(state.reviewMode){
+    const isCorrect = chosen===correctIdx;
+    expl.innerHTML = `${isCorrect? "✅ Correct." : "❌ Incorrect."} <b>Answer:</b> ${item.answer} — ${item.explanation}`;
+  } else {
+    expl.textContent = "";
+  }
+}
+
+function submit(){
+  state.finished = true;
+  clearInterval(tickId);
+  const total = state.items.length;
+  let score = 0;
+  const byTopic = {};
+
+  state.items.forEach((item, i)=>{
+    byTopic[item.topic] = byTopic[item.topic] || {total:0, correct:0};
+    byTopic[item.topic].total++;
+    const chosen = state.answers[i];
+    const correctIdx = item.choices.findIndex(c=>c===item.answer);
+    if(chosen===correctIdx){ score++; byTopic[item.topic].correct++; }
+  });
+
+  $("#res-score").textContent = score;
+  $("#res-total").textContent = total;
+  $("#res-acc").textContent = Math.round((score/total)*100) + "%";
+  const used = state.elapsedSec;
+  $("#res-time").textContent = `${pad(Math.floor(used/60))}:${pad(used%60)}`;
+
+  const bd = $("#res-breakdown"); bd.innerHTML = "";
+  Object.entries(byTopic).forEach(([topic, obj])=>{
+    const div = document.createElement("div");
+    div.className = "kpi";
+    div.innerHTML = `<div class="small">${topic}</div><div style="font-size:22px; font-weight:800">${obj.correct} / ${obj.total}</div>`;
+    bd.appendChild(div);
+  });
+
+  show("results");
+  save();
+}
+
+(function init(){
+  // Load any unfinished session
+  const saved = load();
+  if(saved && saved.items?.length && !saved.finished){
+    Object.assign(state, saved);
+    $("#btn-continue").classList.remove("hidden");
+  }
+  show("setup");
+
+  // events
+  $("#btn-start").addEventListener("click", ()=>{
+    const topic = $("#topic").value;
+    const count = Math.max(10, Math.min(120, parseInt($("#count").value || "60")));
+    const minutes = Math.max(0, Math.min(240, parseInt($("#minutes").value || "0")));
+
+    state.topic = topic;
+    const pool = state.pool.filter(it => topic==="All" || it.topic===topic);
+    const selected = sample(pool, Math.min(count, pool.length));
+    // Reset per-attempt order
+    selected.forEach(it => { delete it._order; });
+
+    state.items = selected;
+    state.answers = Array(state.items.length).fill(null);
+    state.flags = Array(state.items.length).fill(false);
+    state.i = 0;
+    state.reviewMode = false;
+    state.startedAt = Date.now();
+    state.timeLimitSec = minutes*60;
+    state.elapsedSec = 0;
+    state.finished = false;
+
+    show("quiz"); renderNav(); renderQ(); startTimer(); save();
+  });
+
+  $("#btn-continue").addEventListener("click", ()=>{ show("quiz"); renderNav(); renderQ(); startTimer(); });
+
+  $("#btn-prev").addEventListener("click", ()=>{ if(state.i>0){ state.i--; save(); renderQ(); renderNav(); } });
+  $("#btn-next").addEventListener("click", ()=>{ if(state.i<state.items.length-1){ state.i++; save(); renderQ(); renderNav(); } });
+  $("#btn-flag").addEventListener("click", ()=>{ state.flags[state.i] = !state.flags[state.i]; save(); renderNav(); renderQ(); });
+  $("#btn-clear").addEventListener("click", ()=>{ state.answers[state.i] = null; save(); renderNav(); renderQ(); });
+  $("#btn-submit").addEventListener("click", ()=>{ if(confirm("Submit answers now?")) submit(); });
+  $("#btn-exit").addEventListener("click", ()=>{ if(confirm("Exit quiz? Progress saved.")){ show("setup"); } });
+  $("#btn-toggle-review").addEventListener("click", ()=>{ state.reviewMode = !state.reviewMode; $("#btn-toggle-review").textContent = "Review: " + (state.reviewMode? "On":"Off"); renderQ(); });
+  $("#btn-new").addEventListener("click", ()=>{ show("setup"); });
+  $("#btn-review-missed").addEventListener("click", ()=>{
+    const missed = state.items.map((it,i)=> i).filter(i=>{
+      const chosen = state.answers[i];
+      const correctIdx = state.items[i].choices.findIndex(c=>c===state.items[i].answer);
+      return chosen!==correctIdx;
+    });
+    if(!missed.length){ alert("Great job! Nothing to review."); return; }
+    state.i = missed[0];
+    state.reviewMode = true;
+    show("quiz"); renderNav(); renderQ(); save();
+  });
+
+  // Import custom questions (optional)
+  $("#btn-import").addEventListener("click", ()=> $("#file-input").click());
+  $("#file-input").addEventListener("change", async (e)=>{
+    const file = e.target.files[0];
+    if(!file) return;
+    try{
+      const text = await file.text();
+      const data = JSON.parse(text);
+      if(!Array.isArray(data.items)) throw new Error("JSON must have { items: [...] }");
+      state.bankTitle = data.title || "Custom Bank";
+      state.pool = data.items;
+      alert("Custom questions loaded. Configure options and press Start.");
+    }catch(err){
+      alert("Import failed: " + err.message);
+    }finally{
+      e.target.value = "";
+    }
+  });
+
+  // Keyboard shortcuts
+  window.addEventListener("keydown", (e)=>{
+    if($("#quiz").classList.contains("hidden")) return;
+    const k = e.key.toLowerCase();
+    if(["1","2","3","4"].includes(k)){
+      const idx = parseInt(k)-1;
+      const radios = $$("input[name='c']");
+      if(radios[idx]) radios[idx].click();
+    }else if(k==="n"){ $("#btn-next").click(); }
+    else if(k==="p"){ $("#btn-prev").click(); }
+    else if(k==="f"){ $("#btn-flag").click(); }
+    else if(k==="r"){ $("#btn-toggle-review").click(); }
+  });
+
+})();
+</script>
+</body>
+</html>
