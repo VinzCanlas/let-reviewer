@@ -101,17 +101,12 @@
       <div>
         <label class="small">Topic</label>
         <select id="topic">
-          <option value="All">All Topics</option>
-          <option value="Grammar">Grammar</option>
-          <option value="Literature">Literature</option>
-          <option value="Linguistics">Linguistics</option>
-          <option value="Speech & Communication">Speech & Communication</option>
-          <option value="Reading & Writing">Reading & Writing</option>
+          <!-- Topics will be populated dynamically -->
         </select>
       </div>
       <div>
         <label class="small">Number of Questions</label>
-        <input type="number" id="count" min="10" max="120" value="60">
+        <input type="number" id="count" min="10" max="1000" value="60">
       </div>
     </div>
     <div class="grid grid-2">
@@ -193,179 +188,1443 @@
 </div>
 
 <script>
-// Embedded 120-item bank (from your previous build)
-const BANK = {
-  "title": "LET 2025 English Major — Expanded Mixed Questions (220 items)",
-  "exportedAt": "2025-09-03T10:30:00.000Z",
+const BANK =    {
+  "title": "LET 2025 Updated 9/3/2025",
+  "exportedAt": "2025-09-03T10:30:00Z",
   "items": [
-    // Original questions preserved
-    {"question": "Identify the correctly placed modifier.", "choices": ["She almost drove her kids to school every day.", "She drove her kids to school almost every day.", "She drove almost her kids to school every day.", "Almost she drove her kids to school every day."], "answer": "She drove her kids to school almost every day.", "explanation": "Place 'almost' next to the word it modifies: 'every day'.", "topic": "Grammar"},
-    {"question": "Skimming is best used to:", "choices": ["Find specific facts", "Get the main idea quickly", "Evaluate bias", "Memorize details"], "answer": "Get the main idea quickly", "explanation": "Skimming provides a rapid sense of main points.", "topic": "Reading & Writing"},
-    {"question": "Identify the best supporting evidence choice (16).", "choices": ["An anecdote without data", "Irrelevant statistics", "Peer‑reviewed study with data", "Personal opinion"], "answer": "Peer‑reviewed study with data", "explanation": "Empirical, peer‑reviewed sources are strong evidence.", "topic": "Reading & Writing"},
-    {"question": "Choose the best visual aid principle (15).", "choices": ["Use many fonts and colors", "Keep slides simple and readable", "Fill slides with paragraphs", "Avoid images entirely"], "answer": "Keep slides simple and readable", "explanation": "Clarity and simplicity increase audience comprehension.", "topic": "Speech & Communication"},
-    {"question": "Who wrote 'Paradise Lost'?", "choices": ["John Milton", "Geoffrey Chaucer", "John Donne", "Alexander Pope"], "answer": "John Milton", "explanation": "Milton's epic poem explores the Fall of Man.", "topic": "Literature"},
-    {"question": "Coherence in paragraphs is improved by:", "choices": ["Random examples", "Repetition without purpose", "Logical order and transitions", "Length alone"], "answer": "Logical order and transitions", "explanation": "Organized sequencing and cohesive ties enhance coherence.", "topic": "Reading & Writing"},
-    {"question": "Vocal variety helps maintain:", "choices": ["Audience attention", "Slide count", "Room temperature", "Lighting"], "answer": "Audience attention", "explanation": "Changes in pitch, rate, and volume keep interest.", "topic": "Speech & Communication"},
-    {"question": "Who wrote 'Don Quixote'?", "choices": ["Miguel de Cervantes", "Leo Tolstoy", "Virginia Woolf", "J.D. Salinger"], "answer": "Miguel de Cervantes", "explanation": "Foundational modern novel parodying chivalry.", "topic": "Literature"},
-    {"question": "Which best describes 'fossilization'?", "choices": ["Accelerated learning", "Permanent stabilization of errors", "Native-like mastery", "Temporary forgetting"], "answer": "Permanent stabilization of errors", "explanation": "Learner errors become fixed despite exposure.", "topic": "Linguistics"},
-    {"question": "'Ethos' appeals to:", "choices": ["Logic", "Emotion", "Credibility/character", "Style"], "answer": "Credibility/character", "explanation": "Aristotle's rhetorical triangle: ethos, pathos, logos.", "topic": "Reading & Writing"},
+    {
+      "question": "Which of the following is a plosive consonant?",
+      "choices": ["/f/", "/t/", "/s/", "/m/"],
+      "answer": "/t/",
+      "explanation": "Plosives involve complete closure followed by release. /t/ is a voiceless alveolar plosive.",
+    "topic": "Phonology"
+    },
+    {
+      "question": "Which of the following is a fricative?",
+      "choices": ["/b/", "/k/", "/f/", "/m/"],
+      "answer": "/f/",
+      "explanation": "Fricatives involve airflow through a narrow channel. /f/ is a voiceless labiodental fricative.",
+      "topic": "Phonology"
+    },
+    {
+      "question": "Which of the following is an affricate?",
+      "choices": ["/tʃ/", "/m/", "/p/", "/r/"],
+      "answer": "/tʃ/",
+      "explanation": "Affricates combine a stop and fricative. /tʃ/ (as in 'church') is an affricate.",
+      "topic": "Phonology"
+    },
+    {
+      "question": "Which of the following is a nasal?",
+      "choices": ["/t/", "/m/", "/s/", "/k/"],
+      "answer": "/m/",
+      "explanation": "Nasals allow airflow through the nose. /m/ is a voiced bilabial nasal.",
+      "topic": "Phonology"
+    },
+    {
+      "question": "Which is a liquid sound?",
+      "choices": ["/r/", "/p/", "/s/", "/g/"],
+      "answer": "/r/",
+      "explanation": "Liquids are sonorant consonants. /r/ is a voiced alveolar liquid.",
+      "topic": "Phonology"
+    },
+    {
+      "question": "Which is a glide (semivowel)?",
+      "choices": ["/w/", "/m/", "/t/", "/s/"],
+      "answer": "/w/",
+      "explanation": "Glides are semivowels with minimal constriction. /w/ is a bilabial glide.",
+      "topic": "Phonology"
+    },
+    {
+      "question": "Which sound is bilabial?",
+      "choices": ["/b/", "/f/", "/θ/", "/s/"],
+      "answer": "/b/",
+      "explanation": "Bilabial sounds use both lips. /b/ is a voiced bilabial stop.",
+      "topic": "Phonology"
+    },
+    {
+      "question": "Which sound is labiodental?",
+      "choices": ["/t/", "/f/", "/g/", "/r/"],
+      "answer": "/f/",
+      "explanation": "Labiodentals use lower lip and upper teeth. /f/ is a voiceless labiodental fricative.",
+      "topic": "Phonology"
+    },
+    {
+      "question": "Which is a palatal sound?",
+      "choices": ["/j/", "/m/", "/b/", "/p/"],
+      "answer": "/j/",
+      "explanation": "Palatals involve the tongue against the hard palate. /j/ is a voiced palatal glide.",
+      "topic": "Phonology"
+    },
+    {
+      "question": "Which is a velar sound?",
+      "choices": ["/n/", "/g/", "/s/", "/d/"],
+      "answer": "/g/",
+      "explanation": "Velars use the back of the tongue against the soft palate. /g/ is a voiced velar stop.",
+      "topic": "Phonology"
+    },
+    {
+      "question": "Which sound is glottal?",
+      "choices": ["/h/", "/k/", "/t/", "/m/"],
+      "answer": "/h/",
+      "explanation": "Glottal sounds are produced at the vocal folds. /h/ is a voiceless glottal fricative.",
+      "topic": "Phonology"
+    },
+    {
+      "question": "The /v/ sound is:",
+      "choices": ["Voiceless labiodental fricative", "Voiced labiodental fricative", "Voiced bilabial stop", "Voiceless interdental"],
+      "answer": "Voiced labiodental fricative",
+      "explanation": "/v/ is produced with the lower lip against the upper teeth and is voiced.",
+      "topic": "Phonology"
+    },
+    {
+      "question": "The /θ/ sound in 'think' is:",
+      "choices": ["Voiced interdental fricative", "Voiceless interdental fricative", "Voiceless alveolar stop", "Voiced bilabial nasal"],
+      "answer": "Voiceless interdental fricative",
+      "explanation": "/θ/ is voiceless and produced between the teeth, as in 'think'.",
+      "topic": "Phonology"
+    },
+    {
+      "question": "The /ð/ sound in 'this' is:",
+      "choices": ["Voiced interdental fricative", "Voiceless interdental fricative", "Voiced alveolar stop", "Voiceless palatal"],
+      "answer": "Voiced interdental fricative",
+      "explanation": "/ð/ is voiced and produced between the teeth, as in 'this'.",
+      "topic": "Phonology"
+    },
+    {
+      "question": "Which is a voiced alveolar liquid?",
+      "choices": ["/l/", "/s/", "/p/", "/m/"],
+      "answer": "/l/",
+      "explanation": "/l/ is a voiced alveolar lateral liquid.",
+      "topic": "Phonology"
+    },
+    {
+      "question": "Which of the following is a voiced glide?",
+      "choices": ["/j/", "/t/", "/s/", "/p/"],
+      "answer": "/j/",
+      "explanation": "Glides are semivowels. /j/ (as in 'yes') is a voiced palatal glide.",
+      "topic": "Phonology"
+    },
+    {
+      "question": "Which word contains the velar nasal [ŋ]?",
+      "choices": ["Man", "Sing", "Sit", "Sam"],
+      "answer": "Sing",
+      "explanation": "The velar nasal [ŋ] appears at the end of 'sing'.",
+      "topic": "Phonology"
+    },
+    {
+      "question": "In 'pat' [pʰ] vs. 'spin' [p], the difference is:",
+      "choices": ["Aspiration", "Voicing", "Place of articulation", "Nasality"],
+      "answer": "Aspiration",
+      "explanation": "The /p/ in 'pat' is aspirated, while in 'spin' it is unaspirated.",
+      "topic": "Phonology"
+    },
+    {
+      "question": "The /b/ sound differs from /p/ in:",
+      "choices": ["Voicing", "Manner", "Place", "Nasality"],
+      "answer": "Voicing",
+      "explanation": "/b/ is voiced while /p/ is voiceless, both are bilabial plosives.",
+      "topic": "Phonology"
+    },
+    {
+      "question": "Which phoneme pair is distinguished by voicing?",
+      "choices": ["/t/ vs. /d/", "/m/ vs. /n/", "/p/ vs. /m/", "/s/ vs. /ʃ/"],
+      "answer": "/t/ vs. /d/",
+      "explanation": "/t/ is voiceless and /d/ is voiced, both alveolar stops.",
+      "topic": "Phonology"
+    },
+    {
+      "question": "Which pair shows difference in manner of articulation?",
+      "choices": ["/t/ vs. /d/", "/m/ vs. /n/", "/t/ vs. /s/", "/p/ vs. /b/"],
+      "answer": "/t/ vs. /s/",
+      "explanation": "/t/ is a stop while /s/ is a fricative — differing in manner.",
+      "topic": "Phonology"
+    },
+    {
+      "question": "Which pair shows difference in place of articulation?",
+      "choices": ["/f/ vs. /v/", "/m/ vs. /n/", "/s/ vs. /z/", "/p/ vs. /b/"],
+      "answer": "/m/ vs. /n/",
+      "explanation": "/m/ is bilabial while /n/ is alveolar — differing in place.",
+      "topic": "Phonology"
+    },
+    {
+      "question": "'Pat' and 'bat' are minimal pairs because:",
+      "choices": ["They differ by stress", "They differ by only one sound", "They have different syllable structures", "They are homographs"],
+      "answer": "They differ by only one sound",
+      "explanation": "Minimal pairs differ by one phoneme; 'pat' and 'bat' differ by /p/ vs. /b/.",
+      "topic": "Phonology"
+    },
+    {
+      "question": "A syllable consists of:",
+      "choices": ["Only consonants", "Onset, nucleus, and coda", "Vowels only", "Stress and pitch"],
+      "answer": "Onset, nucleus, and coda",
+      "explanation": "The syllable structure typically has onset (beginning), nucleus (vowel), and coda (ending).",
+      "topic": "Phonology"
+    },
+  {
+    "question": "What type of diphthong is /aɪ/ as in 'ride'?",
+    "choices": ["Closing diphthong", "Centering diphthong", "Rising diphthong", "Falling diphthong"],
+    "answer": "Closing diphthong",
+    "explanation": "/aɪ/ moves from an open to a closer position, making it a closing diphthong.",
+    "topic": "Phonology"
+  },
+  {
+    "question": "Which diphthong is found in 'boy'?",
+    "choices": ["/eɪ/", "/aʊ/", "/ɔɪ/", "/ɪə/"],
+    "answer": "/ɔɪ/",
+    "explanation": "The diphthong /ɔɪ/ occurs in 'boy' and 'toy'.",
+    "topic": "Phonology"
+  },
+  {
+    "question": "Which diphthong is present in 'cow'?",
+    "choices": ["/aɪ/", "/eə/", "/aʊ/", "/oʊ/"],
+    "answer": "/aʊ/",
+    "explanation": "The diphthong /aʊ/ occurs in words like 'cow' and 'now'.",
+    "topic": "Phonology"
+  },
+  {
+    "question": "The diphthong in 'say' is:",
+    "choices": ["/eɪ/", "/oʊ/", "/aɪ/", "/ɔɪ/"],
+    "answer": "/eɪ/",
+    "explanation": "/eɪ/ is the diphthong in 'say' and 'day'.",
+    "topic": "Phonology"
+  },
+  {
+    "question": "The diphthong in 'go' is:",
+    "choices": ["/aʊ/", "/oʊ/", "/eə/", "/iə/"],
+    "answer": "/oʊ/",
+    "explanation": "/oʊ/ is the diphthong in 'go' and 'no'.",
+    "topic": "Phonology"
+  },
+  {
+    "question": "Which is a centering diphthong?",
+    "choices": ["/ɪə/", "/aʊ/", "/eɪ/", "/oʊ/"],
+    "answer": "/ɪə/",
+    "explanation": "Centering diphthongs end in schwa /ə/. /ɪə/ is one such diphthong.",
+    "topic": "Phonology"
+  },
+  {
+    "question": "Which diphthong is in 'care'?",
+    "choices": ["/eə/", "/aɪ/", "/oʊ/", "/aʊ/"],
+    "answer": "/eə/",
+    "explanation": "/eə/ appears in words like 'care' and 'air'.",
+    "topic": "Phonology"
+  },
+  {
+    "question": "Which diphthong is in 'tour'?",
+    "choices": ["/ʊə/", "/eə/", "/ɔɪ/", "/aɪ/"],
+    "answer": "/ʊə/",
+    "explanation": "/ʊə/ is found in 'tour' and 'poor'.",
+    "topic": "Phonology"
+  },
+  {
+    "question": "Which word contains the /iə/ diphthong?",
+    "choices": ["Beer", "Car", "Cow", "Boy"],
+    "answer": "Beer",
+    "explanation": "/iə/ appears in words like 'beer' and 'dear'.",
+    "topic": "Phonology"
+  },
+  {
+    "question": "Which word contains the /eə/ diphthong?",
+    "choices": ["Care", "Toy", "Go", "Cow"],
+    "answer": "Care",
+    "explanation": "/eə/ is found in 'care' and 'air'.",
+    "topic": "Phonology"
+  },
+  {
+    "question": "Which is a voiced consonant?",
+    "choices": ["/b/", "/t/", "/s/", "/k/"],
+    "answer": "/b/",
+    "explanation": "Voiced consonants use vocal fold vibration. /b/ is voiced.",
+    "topic": "Phonology"
+  },
+  {
+    "question": "Which is a voiceless consonant?",
+    "choices": ["/v/", "/z/", "/m/", "/k/"],
+    "answer": "/k/",
+    "explanation": "Voiceless consonants have no vocal fold vibration. /k/ is voiceless.",
+    "topic": "Phonology"
+  },
+  {
+    "question": "Which is a tense vowel?",
+    "choices": ["/iː/", "/ɪ/", "/ʊ/", "/ɛ/"],
+    "answer": "/iː/",
+    "explanation": "Tense vowels are longer and more muscularly tense. /iː/ is tense.",
+    "topic": "Phonology"
+  },
+  {
+    "question": "Which is a lax vowel?",
+    "choices": ["/uː/", "/ɪ/", "/iː/", "/ɔː/"],
+    "answer": "/ɪ/",
+    "explanation": "Lax vowels are shorter and produced with less tension. /ɪ/ is lax.",
+    "topic": "Phonology"
+  },
+  {
+    "question": "Which is a high front vowel?",
+    "choices": ["/iː/", "/uː/", "/ɑː/", "/ɔː/"],
+    "answer": "/iː/",
+    "explanation": "/iː/ is produced with the tongue high and front, as in 'seat'.",
+    "topic": "Phonology"
+  },
+  {
+    "question": "Which is a high back vowel?",
+    "choices": ["/iː/", "/æ/", "/uː/", "/e/"],
+    "answer": "/uː/",
+    "explanation": "/uː/ is a high back rounded vowel, as in 'food'.",
+    "topic": "Phonology"
+  },
+  {
+    "question": "Which is a low front vowel?",
+    "choices": ["/æ/", "/uː/", "/ɔː/", "/iː/"],
+    "answer": "/æ/",
+    "explanation": "/æ/ is a low front vowel, as in 'cat'.",
+    "topic": "Phonology"
+  },
+  {
+    "question": "Which is a low back vowel?",
+    "choices": ["/ɑː/", "/e/", "/iː/", "/uː/"],
+    "answer": "/ɑː/",
+    "explanation": "/ɑː/ is a low back vowel, as in 'father'.",
+    "topic": "Phonology"
+  },
+  {
+    "question": "Which is a mid central vowel?",
+    "choices": ["/ə/", "/iː/", "/uː/", "/æ/"],
+    "answer": "/ə/",
+    "explanation": "/ə/ (schwa) is the mid central vowel found in unstressed syllables.",
+    "topic": "Phonology"
+  },
+  {
+    "question": "Which word contains a schwa?",
+    "choices": ["About", "Seat", "Foot", "Cat"],
+    "answer": "About",
+    "explanation": "The first syllable of 'about' contains the schwa /ə/.",
+    "topic": "Phonology"
+  },
 
-    // New questions from the uploaded documents
-    {"question": "Which of the following is a plosive consonant?", "choices": ["/f/", "/t/", "/s/", "/m/"], "answer": "/t/", "explanation": "Plosive (or stop) consonants involve complete obstruction of airflow, then release.", "topic": "Linguistics"},
-    {"question": "Which of the following is a fricative?", "choices": ["/b/", "/k/", "/f/", "/m/"], "answer": "/f/", "explanation": "Fricatives are produced by forcing air through a narrow constriction.", "topic": "Linguistics"},
-    {"question": "Which of the following is an affricate?", "choices": ["/tʃ/", "/m/", "/p/", "/r/"], "answer": "/tʃ/", "explanation": "Affricates begin as stops and release as fricatives, like 'ch' in 'church'.", "topic": "Linguistics"},
-    {"question": "Which of the following is a nasal?", "choices": ["/t/", "/m/", "/s/", "/k/"], "answer": "/m/", "explanation": "Nasal sounds are produced with air flowing through the nose.", "topic": "Linguistics"},
-    {"question": "Which is a liquid sound?", "choices": ["/r/", "/p/", "/s/", "/g/"], "answer": "/r/", "explanation": "Liquids /r/ and /l/ have vowel-like qualities but function as consonants.", "topic": "Linguistics"},
-    {"question": "Which is a glide (semivowel)?", "choices": ["/w/", "/m/", "/t/", "/s/"], "answer": "/w/", "explanation": "Glides /w/ and /j/ transition quickly to or from vowels.", "topic": "Linguistics"},
-    {"question": "Which sound is bilabial?", "choices": ["/b/", "/f/", "/θ/", "/s/"], "answer": "/b/", "explanation": "Bilabial sounds use both lips, like /p/, /b/, /m/, /w/.", "topic": "Linguistics"},
-    {"question": "Which sound is labiodental?", "choices": ["/t/", "/f/", "/g/", "/r/"], "answer": "/f/", "explanation": "Labiodental sounds use the lower lip and upper teeth.", "topic": "Linguistics"},
-    {"question": "Which is a palatal sound?", "choices": ["/j/", "/m/", "/b/", "/p/"], "answer": "/j/", "explanation": "Palatal sounds are articulated with the tongue against the hard palate.", "topic": "Linguistics"},
-    {"question": "Which is a velar sound?", "choices": ["/n/", "/g/", "/s/", "/d/"], "answer": "/g/", "explanation": "Velar sounds are produced with the back of the tongue against the soft palate.", "topic": "Linguistics"},
-    {"question": "Which sound is glottal?", "choices": ["/h/", "/k/", "/t/", "/m/"], "answer": "/h/", "explanation": "Glottal sounds are produced at the glottis (vocal folds).", "topic": "Linguistics"},
-    {"question": "The /v/ sound is:", "choices": ["Voiceless labiodental fricative", "Voiced labiodental fricative", "Voiced bilabial stop", "Voiceless interdental"], "answer": "Voiced labiodental fricative", "explanation": "The /v/ sound uses the lower lip and upper teeth with vocal fold vibration.", "topic": "Linguistics"},
-    {"question": "The /θ/ sound in 'think' is:", "choices": ["Voiced interdental fricative", "Voiceless interdental fricative", "Voiceless alveolar stop", "Voiced bilabial nasal"], "answer": "Voiceless interdental fricative", "explanation": "The 'th' in 'think' is produced between the teeth without voicing.", "topic": "Linguistics"},
-    {"question": "The /ð/ sound in 'this' is:", "choices": ["Voiced interdental fricative", "Voiceless interdental fricative", "Voiced alveolar stop", "Voiceless palatal"], "answer": "Voiced interdental fricative", "explanation": "The 'th' in 'this' is produced between the teeth with voicing.", "topic": "Linguistics"},
-    {"question": "Which is a voiced alveolar liquid?", "choices": ["/l/", "/s/", "/p/", "/m/"], "answer": "/l/", "explanation": "The /l/ sound is produced at the alveolar ridge with voicing.", "topic": "Linguistics"},
-    {"question": "Which word contains the velar nasal [ŋ]?", "choices": ["Man", "Sing", "Sit", "Sam"], "answer": "Sing", "explanation": "The 'ng' in 'sing' represents the velar nasal [ŋ].", "topic": "Linguistics"},
-    {"question": "In 'pat' [pʰ] vs. 'spin' [p], the difference is:", "choices": ["Aspiration", "Voicing", "Place of articulation", "Nasality"], "answer": "Aspiration", "explanation": "Initial /p/ is aspirated in 'pat' but not after /s/ in 'spin'.", "topic": "Linguistics"},
-    {"question": "The /b/ sound differs from /p/ in:", "choices": ["Voicing", "Manner", "Place", "Nasality"], "answer": "Voicing", "explanation": "/b/ is voiced while /p/ is voiceless; they share the same place and manner.", "topic": "Linguistics"},
-    {"question": "Which phoneme pair is distinguished by voicing?", "choices": ["/t/ vs. /d/", "/m/ vs. /n/", "/p/ vs. /m/", "/s/ vs. /ʃ/"], "answer": "/t/ vs. /d/", "explanation": "/t/ and /d/ differ only in voicing (voiceless vs. voiced).", "topic": "Linguistics"},
-    {"question": "Which pair shows difference in manner of articulation?", "choices": ["/t/ vs. /d/", "/m/ vs. /n/", "/t/ vs. /s/", "/p/ vs. /b/"], "answer": "/t/ vs. /s/", "explanation": "/t/ is a stop while /s/ is a fricative - different manners of articulation.", "topic": "Linguistics"},
-    {"question": "Which pair shows difference in place of articulation?", "choices": ["/f/ vs. /v/", "/m/ vs. /n/", "/s/ vs. /z/", "/p/ vs. /b/"], "answer": "/m/ vs. /n/", "explanation": "/m/ is bilabial while /n/ is alveolar - different places of articulation.", "topic": "Linguistics"},
-    {"question": "'Pat' and 'bat' are minimal pairs because:", "choices": ["They differ by stress", "They differ by only one sound", "They have different syllable structures", "They are homographs"], "answer": "They differ by only one sound", "explanation": "Minimal pairs differ by exactly one phoneme in the same position.", "topic": "Linguistics"},
-    {"question": "A syllable consists of:", "choices": ["Only consonants", "Onset, nucleus, and coda", "Vowels only", "Stress and pitch"], "answer": "Onset, nucleus, and coda", "explanation": "These are the three potential parts of syllable structure.", "topic": "Linguistics"},
-    {"question": "The central part of the syllable is the:", "choices": ["Coda", "Nucleus", "Onset", "Affix"], "answer": "Nucleus", "explanation": "The nucleus is the obligatory vowel sound at the syllable center.", "topic": "Linguistics"},
-    {"question": "A nucleus is typically:", "choices": ["A vowel", "A consonant cluster", "An affix", "A morpheme"], "answer": "A vowel", "explanation": "The nucleus is usually a vowel, though sometimes a syllabic consonant.", "topic": "Linguistics"},
-    {"question": "A coda occurs:", "choices": ["At the beginning of a syllable", "At the end of a syllable", "Before the nucleus", "Before onset"], "answer": "At the end of a syllable", "explanation": "The coda consists of consonants that follow the nucleus.", "topic": "Linguistics"},
-    {"question": "Which is a closed syllable?", "choices": ["Go", "Cat", "Bee", "Pie"], "answer": "Cat", "explanation": "Closed syllables end in a consonant (the coda).", "topic": "Linguistics"},
-    {"question": "Which is an open syllable?", "choices": ["Run", "Me", "Cat", "Sit"], "answer": "Me", "explanation": "Open syllables end in a vowel (no coda).", "topic": "Linguistics"},
-    {"question": "Which branch of linguistics studies the structure of sentences?", "choices": ["Phonology", "Syntax", "Morphology", "Semantics"], "answer": "Syntax", "explanation": "Syntax studies how words combine to form phrases and sentences.", "topic": "Linguistics"},
-    {"question": "Which branch studies the smallest units of sound?", "choices": ["Pragmatics", "Phonology", "Morphology", "Syntax"], "answer": "Phonology", "explanation": "Phonology studies the sound systems of languages.", "topic": "Linguistics"},
-    {"question": "The study of human sounds in general is:", "choices": ["Phonetics", "Semantics", "Morphology", "Pragmatics"], "answer": "Phonetics", "explanation": "Phonetics studies the physical properties of speech sounds.", "topic": "Linguistics"},
-    {"question": "Which branch studies word formation?", "choices": ["Syntax", "Semantics", "Morphology", "Pragmatics"], "answer": "Morphology", "explanation": "Morphology studies the internal structure and formation of words.", "topic": "Linguistics"},
-    {"question": "The process of learning language is called:", "choices": ["Language Change", "Language Acquisition", "Sociolinguistics", "Applied Linguistics"], "answer": "Language Acquisition", "explanation": "Language acquisition refers to the process of learning language naturally.", "topic": "Linguistics"},
-    {"question": "Applied linguistics is mainly concerned with:", "choices": ["Theories of syntax", "Practical uses like language teaching", "Mythology of language", "Cultural criticism"], "answer": "Practical uses like language teaching", "explanation": "Applied linguistics applies linguistic theory to real-world problems.", "topic": "Linguistics"},
-    {"question": "The field that studies historical processes in language is:", "choices": ["Pragmatics", "Semantics", "Language Change", "Sociolinguistics"], "answer": "Language Change", "explanation": "Historical linguistics studies how languages change over time.", "topic": "Linguistics"},
-    {"question": "Which field focuses on social uses of language?", "choices": ["Sociolinguistics", "Syntax", "Semantics", "Morphology"], "answer": "Sociolinguistics", "explanation": "Sociolinguistics studies language in its social context.", "topic": "Linguistics"},
-    {"question": "The smallest unit of meaning in language is a:", "choices": ["Phoneme", "Morpheme", "Grapheme", "Allophone"], "answer": "Morpheme", "explanation": "Morphemes are the smallest meaningful units in language.", "topic": "Linguistics"},
-    {"question": "Variations of a single morpheme (like plural -s) are called:", "choices": ["Phones", "Graphemes", "Allomorphs", "Bound morphemes"], "answer": "Allomorphs", "explanation": "Allomorphs are different forms of the same morpheme.", "topic": "Linguistics"},
-    {"question": "Which is a bound morpheme?", "choices": ["Dog", "Book", "-s", "Run"], "answer": "-s", "explanation": "Bound morphemes cannot stand alone as words.", "topic": "Linguistics"},
-    {"question": "'Teacher' contains which type of morpheme?", "choices": ["Prefix", "Suffix", "Infix", "Circumfix"], "answer": "Suffix", "explanation": "The '-er' ending is a suffix attached to 'teach'.", "topic": "Linguistics"},
-    {"question": "'S-um-ulat' in Tagalog shows the use of:", "choices": ["Prefix", "Suffix", "Infix", "Circumfix"], "answer": "Infix", "explanation": "'-um-' is inserted within the root 'sulat' (write).", "topic": "Linguistics"},
-    {"question": "Derivational morphemes:", "choices": ["Change the meaning or word class", "Only mark tense", "Are always inflectional", "Never create new words"], "answer": "Change the meaning or word class", "explanation": "Derivational morphemes create new words or change word categories.", "topic": "Linguistics"},
-    {"question": "Inflectional morphemes:", "choices": ["Create new words", "Change form but not class", "Add prefixes only", "Cannot indicate plurality"], "answer": "Change form but not class", "explanation": "Inflectional morphemes modify words without changing their category.", "topic": "Linguistics"},
-    {"question": "Which is a derivational example?", "choices": ["Walk → walked", "Run → running", "Happy → happiness", "Cat → cats"], "answer": "Happy → happiness", "explanation": "'-ness' creates a noun from an adjective, changing word class.", "topic": "Linguistics"},
-    {"question": "Which is an inflectional example?", "choices": ["Child → childhood", "Love → lovely", "Play → played", "Friend → friendship"], "answer": "Play → played", "explanation": "'-ed' marks past tense without changing the word class (verb).", "topic": "Linguistics"},
-    {"question": "The 'mental lexicon' is best described as:", "choices": ["A printed dictionary", "A network of words and meanings in the brain", "Grammar rules", "Orthography"], "answer": "A network of words and meanings in the brain", "explanation": "The mental lexicon is our internal storage system for words.", "topic": "Linguistics"},
-    {"question": "Language used to talk about language is called:", "choices": ["Metaphor", "Metalanguage", "Pragmatics", "Semantics"], "answer": "Metalanguage", "explanation": "Metalanguage is language used to describe or analyze language itself.", "topic": "Linguistics"},
-    {"question": "Collecting data from native speakers is called:", "choices": ["Corpus linguistics", "Elicitation", "Semantics", "Pragmatics"], "answer": "Elicitation", "explanation": "Elicitation involves gathering language data from speakers.", "topic": "Linguistics"},
-    {"question": "A word that cannot stand alone is:", "choices": ["Free morpheme", "Bound morpheme", "Lexical morpheme", "Grammatical morpheme"], "answer": "Bound morpheme", "explanation": "Bound morphemes must attach to other morphemes.", "topic": "Linguistics"},
-    {"question": "'Football' is formed by:", "choices": ["Conversion", "Compounding", "Affixation", "Clipping"], "answer": "Compounding", "explanation": "Compounding combines two free morphemes: 'foot' + 'ball'.", "topic": "Linguistics"},
-    {"question": "'Email' as a verb is formed by:", "choices": ["Back-formation", "Conversion", "Clipping", "Compounding"], "answer": "Conversion", "explanation": "Conversion changes word class without adding affixes.", "topic": "Linguistics"},
-    {"question": "Which is a productive suffix in English?", "choices": ["-hood", "-ness", "-dom", "-ship"], "answer": "-ness", "explanation": "'-ness' is actively used to create new words in modern English.", "topic": "Linguistics"},
-    {"question": "Which is an example of clipping?", "choices": ["Advertisement → ad", "Donation → donate", "Burglar → burgle", "Pickpocket"], "answer": "Advertisement → ad", "explanation": "Clipping shortens words by removing syllables.", "topic": "Linguistics"},
-    {"question": "Homophones are words that:", "choices": ["Sound the same but differ in meaning", "Look the same but differ in meaning", "Are both spelled and pronounced the same", "Have opposite meanings"], "answer": "Sound the same but differ in meaning", "explanation": "Homophones share pronunciation but have different meanings.", "topic": "Linguistics"},
-    {"question": "'Flower' and 'flour' are examples of:", "choices": ["Homograph", "Homonymy", "Homophony", "Synonymy"], "answer": "Homophony", "explanation": "These words sound identical but have different meanings and spellings.", "topic": "Linguistics"},
-    {"question": "Homographs are words that:", "choices": ["Sound the same but differ in spelling", "Have the same spelling but different meanings", "Have different pronunciations always", "Are spelled differently but mean the same"], "answer": "Have the same spelling but different meanings", "explanation": "Homographs share spelling but may differ in pronunciation or meaning.", "topic": "Linguistics"},
-    {"question": "'Lead' (metal) vs. 'lead' (to guide) is:", "choices": ["Homophony", "Homography", "Homonymy", "Synonymy"], "answer": "Homography", "explanation": "Same spelling, different meanings and pronunciations.", "topic": "Linguistics"},
-    {"question": "Intonation refers to:", "choices": ["Word stress", "Rise and fall of pitch in speech", "Loudness of voice", "Rhythm"], "answer": "Rise and fall of pitch in speech", "explanation": "Intonation is the melody pattern of speech.", "topic": "Linguistics"},
-    {"question": "Rising intonation often signals:", "choices": ["Wh-questions", "Statements", "Yes/No questions", "Commands"], "answer": "Yes/No questions", "explanation": "Rising intonation typically accompanies yes/no questions.", "topic": "Linguistics"},
-    {"question": "Falling intonation is typical in:", "choices": ["Uncertainty", "Statements and wh-questions", "Hesitation", "Politeness"], "answer": "Statements and wh-questions", "explanation": "Declarative statements and wh-questions usually have falling intonation.", "topic": "Linguistics"},
-    {"question": "Rhythm in English is described as:", "choices": ["Syllable-timed", "Stress-timed", "Tone-timed", "Free-timed"], "answer": "Stress-timed", "explanation": "English rhythm is based on stress patterns, not syllable count.", "topic": "Linguistics"},
-    {"question": "Pitch refers to:", "choices": ["Volume of speech", "Highness or lowness of voice", "Rhythm in poetry", "Length of syllables"], "answer": "Highness or lowness of voice", "explanation": "Pitch is the perceived frequency of vocal fold vibration.", "topic": "Linguistics"},
-    {"question": "Prosody refers to:", "choices": ["Sound units", "Features above the level of sounds, like stress and intonation", "Morphological processes", "Grammar rules"], "answer": "Features above the level of sounds, like stress and intonation", "explanation": "Prosody encompasses suprasegmental features of speech.", "topic": "Linguistics"},
-    {"question": "The Elizabethan Age (1558-1603) is also known as the:", "choices": ["Romantic Age", "Golden Age of English Literature", "Modernist Age", "Augustan Age"], "answer": "Golden Age of English Literature", "explanation": "This period saw Shakespeare, Marlowe, and other literary giants.", "topic": "Literature"},
-    {"question": "The Harlem Renaissance primarily emphasized:", "choices": ["Chivalry and medieval ideals", "Racial pride and Black cultural identity", "The tragedy of ambition", "European nationalism"], "answer": "Racial pride and Black cultural identity", "explanation": "The Harlem Renaissance celebrated African American culture and identity.", "topic": "Literature"},
-    {"question": "'Willing suspension of disbelief' refers to:", "choices": ["Rejecting reality completely", "Temporarily accepting the implausible in fiction", "Denying logic permanently", "Blind faith in literature"], "answer": "Temporarily accepting the implausible in fiction", "explanation": "Coleridge's concept about accepting fictional elements while reading.", "topic": "Literature"},
-    {"question": "Pastoral poetry is characterized by:", "choices": ["Urban settings", "Scientific inquiry", "Rural and rustic idealism", "Industrial progress"], "answer": "Rural and rustic idealism", "explanation": "Pastoral poetry idealizes rural life and nature.", "topic": "Literature"},
-    {"question": "Which is the central theme of The Waste Land?", "choices": ["Joyful renewal", "Post-war spiritual crisis", "Romantic optimism", "Elizabethan nationalism"], "answer": "Post-war spiritual crisis", "explanation": "Eliot's poem reflects the spiritual desolation after World War I.", "topic": "Literature"},
-    {"question": "A literary work that includes a short quotation or poem at the start is using:", "choices": ["Epilogue", "Monologue", "Epigraph", "Prologue"], "answer": "Epigraph", "explanation": "An epigraph is a short quotation placed at the beginning of a text.", "topic": "Literature"},
-    {"question": "A character's private speech addressed to the audience, revealing inner thoughts, is a:", "choices": ["Dialogue", "Soliloquy", "Monologue", "Epigraph"], "answer": "Soliloquy", "explanation": "A soliloquy reveals a character's private thoughts to the audience.", "topic": "Literature"},
-    {"question": "Hamlet is primarily about:", "choices": ["The dangers of excessive ambition", "Revenge, indecision, and moral dilemmas", "The collapse of an empire", "The pursuit of love"], "answer": "Revenge, indecision, and moral dilemmas", "explanation": "Hamlet struggles with avenging his father while questioning morality.", "topic": "Literature"},
-    {"question": "Which play features the witches' prophecy about a general's rise and fall?", "choices": ["Othello", "Macbeth", "Hamlet", "King Lear"], "answer": "Macbeth", "explanation": "The three witches prophesy Macbeth's rise to kingship and downfall.", "topic": "Literature"},
-    {"question": "'To be, or not to be' comes from:", "choices": ["King Lear", "Hamlet", "Macbeth", "Julius Caesar"], "answer": "Hamlet", "explanation": "This is from Hamlet's famous soliloquy in Act 3, Scene 1.", "topic": "Literature"},
-    {"question": "The Scarlet Letter explores:", "choices": ["Industrialization", "Hidden sin and public guilt", "Romantic nationalism", "War heroism"], "answer": "Hidden sin and public guilt", "explanation": "Hawthorne examines the consequences of hidden sin and public shame.", "topic": "Literature"},
-    {"question": "Ulysses is considered a masterpiece of:", "choices": ["Modernism", "Romanticism", "Neoclassicism", "Realism"], "answer": "Modernism", "explanation": "Joyce's experimental novel exemplifies literary modernism.", "topic": "Literature"},
-    {"question": "Franz Kafka is best known for exploring:", "choices": ["Colonial oppression", "Alienation and bureaucracy", "Love and passion", "Heroic nationalism"], "answer": "Alienation and bureaucracy", "explanation": "Kafka's works often feature isolated individuals facing incomprehensible systems.", "topic": "Literature"},
-    {"question": "'Kafkaesque' situations are often described as:", "choices": ["Joyful and liberating", "Logical and simple", "Complex and nightmarish", "Harmonious and peaceful"], "answer": "Complex and nightmarish", "explanation": "Kafkaesque describes surreal, bureaucratic, or nightmarish situations.", "topic": "Literature"},
-    {"question": "Langston Hughes infused his poetry with:", "choices": ["Shakespearean blank verse", "Jazz and Black vernacular", "Elizabethan sonnet style", "Greek epic tradition"], "answer": "Jazz and Black vernacular", "explanation": "Hughes incorporated jazz rhythms and African American speech patterns.", "topic": "Literature"},
-    {"question": "The allegorical tale Young Goodman Brown focuses on:", "choices": ["National identity", "Hidden sin and morality", "Industrialization", "Social justice"], "answer": "Hidden sin and morality", "explanation": "Hawthorne's story examines the discovery of evil in seemingly good people.", "topic": "Literature"},
-    {"question": "Which work is considered the 'founding novel of Western literature'?", "choices": ["The Scarlet Letter", "Don Quixote", "Ulysses", "The Metamorphosis"], "answer": "Don Quixote", "explanation": "Cervantes' novel is often considered the first modern novel.", "topic": "Literature"},
-    {"question": "Which of the following is an example of oxymoron?", "choices": ["Pretty ugly", "Silent night", "Happy ending", "Deep thought"], "answer": "Pretty ugly", "explanation": "Oxymoron combines contradictory terms for effect.", "topic": "Literature"},
-    {"question": "Which is an example of back-formation?", "choices": ["Burglar → burgle", "Email → to email", "Childhood → child", "Phone → telephone"], "answer": "Burglar → burgle", "explanation": "Back-formation creates new words by removing apparent affixes.", "topic": "Linguistics"},
-    {"question": "Which word formation process is shown in 'pickpocket'?", "choices": ["Conversion", "Compounding", "Affixation", "Clipping"], "answer": "Compounding", "explanation": "Compounding combines 'pick' and 'pocket' into one word.", "topic": "Linguistics"},
-    {"question": "The IPA consonant chart organizes sounds by:", "choices": ["Alphabetical order", "Place, manner, and voicing", "Meaning and context", "Loudness and softness"], "answer": "Place, manner, and voicing", "explanation": "The IPA chart systematically organizes consonants by articulatory features.", "topic": "Linguistics"},
-    {"question": "Which is NOT a manner of articulation?", "choices": ["Stop", "Nasal", "Affricate", "Conjunction"], "answer": "Conjunction", "explanation": "Conjunction is a grammatical term, not a manner of articulation.", "topic": "Linguistics"},
-    {"question": "A phone is:", "choices": ["The smallest unit of meaning", "Any actual speech sound produced", "A dictionary entry", "A symbol in writing"], "answer": "Any actual speech sound produced", "explanation": "Phones are actual speech sounds, regardless of linguistic significance.", "topic": "Linguistics"},
-    {"question": "A phoneme is:", "choices": ["A variant of a sound", "A mental category of contrastive sounds", "A speech act", "A type of grapheme"], "answer": "A mental category of contrastive sounds", "explanation": "Phonemes are abstract sound units that distinguish meaning.", "topic": "Linguistics"},
-    {"question": "Different pronunciations of the same phoneme are called:", "choices": ["Morphemes", "Phones", "Allophones", "Syllables"], "answer": "Allophones", "explanation": "Allophones are variant realizations of the same phoneme.", "topic": "Linguistics"},
-    {"question": "Which type of morpheme can stand alone as a word?", "choices": ["Bound", "Free", "Affix", "Allomorph"], "answer": "Free", "explanation": "Free morphemes can function independently as complete words.", "topic": "Linguistics"},
-    {"question": "'Unhappiness' contains:", "choices": ["Two bound morphemes and one free morpheme", "Two free morphemes and one bound morpheme", "Three free morphemes", "Only one bound morpheme"], "answer": "Two bound morphemes and one free morpheme", "explanation": "'Un-' and '-ness' are bound; 'happy' is free.", "topic": "Linguistics"},
-    {"question": "Which is a lexical morpheme?", "choices": ["-ed", "The", "Run", "And"], "answer": "Run", "explanation": "Lexical morphemes carry semantic content (nouns, verbs, adjectives).", "topic": "Linguistics"},
-    {"question": "Which is a grammatical morpheme?", "choices": ["Dog", "Book", "Happy", "-s"], "answer": "-s", "explanation": "Grammatical morphemes express grammatical relationships.", "topic": "Linguistics"},
-    {"question": "Which field of linguistics studies meaning?", "choices": ["Syntax", "Semantics", "Pragmatics", "Morphology"], "answer": "Semantics", "explanation": "Semantics studies the meaning of words, phrases, and sentences.", "topic": "Linguistics"},
-    {"question": "Which studies language use in social contexts?", "choices": ["Sociolinguistics", "Syntax", "Phonology", "Morphology"], "answer": "Sociolinguistics", "explanation": "Sociolinguistics examines how language varies and functions in social settings.", "topic": "Linguistics"},
+  {
+    "question": "Which is an open vowel?",
+    "choices": ["/æ/", "/iː/", "/uː/", "/ɪ/"],
+    "answer": "/æ/",
+    "explanation": "Open vowels are produced with the mouth wide open. /æ/ is an open front vowel.",
+    "topic": "Phonology"
+  },
+  {
+    "question": "Which is a close vowel?",
+    "choices": ["/iː/", "/æ/", "/ɑː/", "/ɔː/"],
+    "answer": "/iː/",
+    "explanation": "Close vowels are produced with the tongue raised. /iː/ is a close front vowel.",
+    "topic": "Phonology"
+  },
+  {
+    "question": "Which is a rounded vowel?",
+    "choices": ["/uː/", "/iː/", "/æ/", "/e/"],
+    "answer": "/uː/",
+    "explanation": "Rounded vowels involve lip rounding. /uː/ is rounded.",
+    "topic": "Phonology"
+  },
+  {
+    "question": "Which is an unrounded vowel?",
+    "choices": ["/iː/", "/uː/", "/oʊ/", "/ɔː/"],
+    "answer": "/iː/",
+    "explanation": "Unrounded vowels are produced without lip rounding. /iː/ is unrounded.",
+    "topic": "Phonology"
+  },
+  {
+    "question": "Which is a central vowel?",
+    "choices": ["/ə/", "/iː/", "/uː/", "/æ/"],
+    "answer": "/ə/",
+    "explanation": "Central vowels are articulated in the middle of the mouth. /ə/ is central.",
+    "topic": "Phonology"
+  },
+  {
+    "question": "The word 'song' ends in which consonant sound?",
+    "choices": ["/ŋ/", "/n/", "/g/", "/k/"],
+    "answer": "/ŋ/",
+    "explanation": "The final consonant in 'song' is the velar nasal /ŋ/.",
+    "topic": "Phonology"
+  },
+  {
+    "question": "The word 'laugh' ends in which sound?",
+    "choices": ["/f/", "/v/", "/p/", "/θ/"],
+    "answer": "/f/",
+    "explanation": "Although spelled with 'gh', 'laugh' ends with /f/.",
+    "topic": "Phonology"
+  },
+  {
+    "question": "The word 'judge' ends in which sound?",
+    "choices": ["/dʒ/", "/ʃ/", "/tʃ/", "/ʒ/"],
+    "answer": "/dʒ/",
+    "explanation": "'Judge' ends with the affricate /dʒ/.",
+    "topic": "Phonology"
+  },
+  {
+    "question": "The word 'think' contains which initial sound?",
+    "choices": ["/θ/", "/ð/", "/t/", "/s/"],
+    "answer": "/θ/",
+    "explanation": "'Think' begins with the voiceless dental fricative /θ/.",
+    "topic": "Phonology"
+  },
+  {
+    "question": "The word 'this' begins with which sound?",
+    "choices": ["/θ/", "/ð/", "/d/", "/z/"],
+    "answer": "/ð/",
+    "explanation": "'This' starts with the voiced dental fricative /ð/.",
+    "topic": "Phonology"
+  },
+  {
+    "question": "Which word has a long vowel?",
+    "choices": ["Seat", "Sit", "Cat", "Met"],
+    "answer": "Seat",
+    "explanation": "'Seat' has the long vowel /iː/. 'Sit' has the short /ɪ/.",
+    "topic": "Phonology"
+  },
+  {
+    "question": "Which word has a short vowel?",
+    "choices": ["Food", "Foot", "Card", "Seed"],
+    "answer": "Foot",
+    "explanation": "'Foot' has the short vowel /ʊ/, while 'food' has /uː/. ",
+    "topic": "Phonology"
+  },
+  {
+    "question": "The plural of 'bus' is pronounced with which final sound?",
+    "choices": ["/s/", "/z/", "/ɪz/", "/əz/"],
+    "answer": "/ɪz/",
+    "explanation": "'Bus' pluralizes as 'buses', pronounced /ˈbʌsɪz/. ",
+    "topic": "Phonology"
+  },
+  {
+    "question": "The plural of 'dog' is pronounced with which ending?",
+    "choices": ["/s/", "/z/", "/ɪz/", "/əz/"],
+    "answer": "/z/",
+    "explanation": "Voiced consonant endings take /z/. 'Dogs' is /dɔgz/. ",
+    "topic": "Phonology"
+  },
+  {
+    "question": "The past tense of 'want' is pronounced with which ending?",
+    "choices": ["/t/", "/d/", "/ɪd/", "/əd/"],
+    "answer": "/ɪd/",
+    "explanation": "Past tense after /t/ or /d/ adds /ɪd/. 'Wanted' = /ˈwɒntɪd/. ",
+    "topic": "Phonology"
+  },
+  {
+    "question": "The past tense of 'play' is pronounced with which ending?",
+    "choices": ["/t/", "/d/", "/ɪd/", "/əd/"],
+    "answer": "/d/",
+    "explanation": "Voiced consonant endings take /d/. 'Played' = /pleɪd/. ",
+    "topic": "Phonology"
+  },
+  {
+    "question": "The past tense of 'kiss' is pronounced with which ending?",
+    "choices": ["/t/", "/d/", "/ɪd/", "/əd/"],
+    "answer": "/t/",
+    "explanation": "Voiceless consonants take /t/. 'Kissed' = /kɪst/. ",
+    "topic": "Phonology"
+  },
+  {
+    "question": "Which word has stress on the first syllable?",
+    "choices": ["Teacher", "Become", "Forget", "Allow"],
+    "answer": "Teacher",
+    "explanation": "Disyllabic nouns like 'teacher' usually stress the first syllable.",
+    "topic": "Phonology"
+  },
+  {
+    "question": "Which word has stress on the second syllable?",
+    "choices": ["Table", "Reply", "Mother", "Father"],
+    "answer": "Reply",
+    "explanation": "Disyllabic verbs like 'reply' usually stress the second syllable.",
+    "topic": "Phonology"
+  },
+  {
+    "question": "Which word has primary stress on the third syllable?",
+    "choices": ["Education", "Happiness", "Wonderful", "Dangerous"],
+    "answer": "Education",
+    "explanation": "'Education' has stress on the third syllable: /ˌedʒuˈkeɪʃn/.",
+    "topic": "Phonology"
+  },
 
-    // Additional questions from all documents
-    {"question": "Which linguistic theory focuses on language in real-life communication?", "choices": ["Structuralism", "Functionalism", "Generativism", "Behaviorism"], "answer": "Functionalism", "explanation": "Functionalism emphasizes language as a tool for communication in context.", "topic": "Linguistics"},
-    {"question": "Functionalism in language teaching emphasizes:", "choices": ["Rote memorization", "Communication and interaction", "Grammar drills", "Reading literature only"], "answer": "Communication and interaction", "explanation": "Functional approaches prioritize meaningful communication over mechanical practice.", "topic": "Linguistics"},
-    {"question": "A cloze test measures:", "choices": ["Memory", "Ability to fill in missing words", "Phonetic accuracy", "Literary interpretation"], "answer": "Ability to fill in missing words", "explanation": "Cloze tests assess reading comprehension and contextual understanding.", "topic": "Linguistics"},
-    {"question": "A proficiency exam primarily assesses:", "choices": ["Historical knowledge", "Real-world language use", "Literature recall", "Vocabulary only"], "answer": "Real-world language use", "explanation": "Proficiency tests measure practical language ability in authentic contexts.", "topic": "Linguistics"},
-    {"question": "Which work critiques chivalric ideals and reality vs. illusion?", "choices": ["Macbeth", "Don Quixote", "The Scarlet Letter", "Hamlet"], "answer": "Don Quixote", "explanation": "Cervantes satirizes romanticized notions of knighthood and chivalry.", "topic": "Literature"},
-    {"question": "In Hamlet, Claudius is:", "choices": ["Hamlet's father", "Hamlet's uncle and murderer of the king", "Hamlet's brother", "Ophelia's father"], "answer": "Hamlet's uncle and murderer of the king", "explanation": "Claudius killed his brother (Hamlet's father) and married Gertrude.", "topic": "Literature"},
-    {"question": "Who is Ophelia's brother?", "choices": ["Hamlet", "Claudius", "Laertes", "Polonius"], "answer": "Laertes", "explanation": "Laertes is Polonius's son and Ophelia's brother.", "topic": "Literature"},
-    {"question": "Who leads the army against Macbeth?", "choices": ["Hamlet and Horatio", "Malcolm and Macduff", "Banquo and Duncan", "Fortinbras and Polonius"], "answer": "Malcolm and Macduff", "explanation": "Malcolm (rightful heir) and Macduff lead forces to restore legitimate rule.", "topic": "Literature"},
-    {"question": "Who inherits the throne at the end of Hamlet?", "choices": ["Hamlet", "Claudius", "Fortinbras", "Laertes"], "answer": "Fortinbras", "explanation": "The Norwegian prince Fortinbras restores order after the tragedy.", "topic": "Literature"},
-    {"question": "'Not without Laughter' was written by:", "choices": ["Langston Hughes", "James Joyce", "Nathaniel Hawthorne", "Edith Tiempo"], "answer": "Langston Hughes", "explanation": "Hughes's semi-autobiographical novel about African American family life.", "topic": "Literature"},
-    {"question": "Which work by Hughes celebrates African American culture?", "choices": ["Murder in the Cathedral", "The Negro Speaks of Rivers", "Ulysses", "The Castle"], "answer": "The Negro Speaks of Rivers", "explanation": "This poem connects African American identity to ancient civilizations.", "topic": "Literature"},
-    {"question": "Which author is associated with 'stream of consciousness'?", "choices": ["James Joyce", "Miguel de Cervantes", "Franz Kafka", "Nathaniel Hawthorne"], "answer": "James Joyce", "explanation": "Joyce pioneered stream-of-consciousness narrative technique.", "topic": "Literature"},
-    {"question": "Dubliners includes which famous story?", "choices": ["The Dead", "The Castle", "The Waste Land", "The Scarlet Letter"], "answer": "The Dead", "explanation": "'The Dead' is the final and most celebrated story in Joyce's collection.", "topic": "Literature"},
-    {"question": "James Joyce's Ulysses is often described as:", "choices": ["A pastoral romance", "The greatest modernist novel", "A gothic allegory", "A Shakespearean tragedy"], "answer": "The greatest modernist novel", "explanation": "Ulysses is widely regarded as the pinnacle of modernist literature.", "topic": "Literature"},
-    {"question": "Which author used allegory and symbolism to probe hidden sin?", "choices": ["James Joyce", "Nathaniel Hawthorne", "Franz Kafka", "Miguel de Cervantes"], "answer": "Nathaniel Hawthorne", "explanation": "Hawthorne explored moral psychology through symbolic narratives.", "topic": "Literature"},
-    {"question": "'Mosses from an Old Manse' was written by:", "choices": ["James Joyce", "Nathaniel Hawthorne", "Franz Kafka", "Langston Hughes"], "answer": "Nathaniel Hawthorne", "explanation": "A collection of Hawthorne's short stories published in 1846.", "topic": "Literature"},
-    {"question": "The work The House of Seven Gables is:", "choices": ["A short story by Kafka", "A gothic romance by Hawthorne", "A modernist text by Joyce", "A Shakespearean play"], "answer": "A gothic romance by Hawthorne", "explanation": "Hawthorne's novel explores ancestral guilt and family curses.", "topic": "Literature"},
-    {"question": "Who wrote The Trial and The Castle?", "choices": ["Franz Kafka", "T.S. Eliot", "James Joyce", "Edith Tiempo"], "answer": "Franz Kafka", "explanation": "These novels epitomize Kafka's themes of bureaucratic absurdity.", "topic": "Literature"},
-    {"question": "The term 'Kafkaesque' suggests:", "choices": ["Light and humorous situations", "Bizarre, nightmarish complexity", "Romantic optimism", "Joyful simplicity"], "answer": "Bizarre, nightmarish complexity", "explanation": "Kafkaesque describes surreal, oppressive, or absurdly complex situations.", "topic": "Literature"},
-    {"question": "The Waste Land portrays:", "choices": ["Rural peace", "Post-war spiritual desolation", "Romantic love", "Shakespearean tragedy"], "answer": "Post-war spiritual desolation", "explanation": "Eliot's poem captures the spiritual barrenness after World War I.", "topic": "Literature"},
-    {"question": "Which is a tragedy of ambition and fate?", "choices": ["Hamlet", "Macbeth", "Don Quixote", "The Scarlet Letter"], "answer": "Macbeth", "explanation": "Macbeth's ambition leads to his inevitable downfall.", "topic": "Literature"},
-    {"question": "Who said, 'Out, damned spot!'?", "choices": ["Hamlet", "Macbeth", "Lady Macbeth", "Ophelia"], "answer": "Lady Macbeth", "explanation": "Lady Macbeth says this while sleepwalking, haunted by guilt.", "topic": "Literature"},
-    {"question": "The Green Knight challenges whom?", "choices": ["Hamlet", "Sir Gawain", "Macbeth", "Laertes"], "answer": "Sir Gawain", "explanation": "In the medieval romance, the Green Knight tests Sir Gawain's honor.", "topic": "Literature"},
-    {"question": "Sir Gawain's tale is mainly about:", "choices": ["Chivalry and honor", "Post-war alienation", "Romantic love", "Religious reform"], "answer": "Chivalry and honor", "explanation": "The poem explores the ideals and complexities of chivalric honor.", "topic": "Literature"},
-    {"question": "Which Shakespearean character struggles with indecision?", "choices": ["Macbeth", "Hamlet", "Othello", "Iago"], "answer": "Hamlet", "explanation": "Hamlet's indecision about revenge drives the play's action.", "topic": "Literature"},
-    {"question": "Which author is a major figure of literary modernism?", "choices": ["Miguel de Cervantes", "T.S. Eliot", "Nathaniel Hawthorne", "Edith Tiempo"], "answer": "T.S. Eliot", "explanation": "Eliot was a leading poet and critic of the modernist movement.", "topic": "Literature"},
-    {"question": "The Harlem Renaissance took place mainly in:", "choices": ["Paris", "Harlem, New York", "London", "Boston"], "answer": "Harlem, New York", "explanation": "This cultural movement centered in Harlem during the 1920s-1930s.", "topic": "Literature"},
-    {"question": "Which writer was both poet and social activist?", "choices": ["James Joyce", "Langston Hughes", "T.S. Eliot", "Franz Kafka"], "answer": "Langston Hughes", "explanation": "Hughes combined literary achievement with social and political activism.", "topic": "Literature"},
-    {"question": "The phrase 'Negro Speaks of Rivers' connects to:", "choices": ["Modernist despair", "African American heritage", "Elizabethan drama", "Gothic fiction"], "answer": "African American heritage", "explanation": "The poem links African American identity to ancient river civilizations.", "topic": "Literature"},
-    {"question": "Franz Kafka was from:", "choices": ["Ireland", "Czech lands", "Spain", "America"], "answer": "Czech lands", "explanation": "Kafka was born in Prague, then part of the Austro-Hungarian Empire.", "topic": "Literature"},
-    {"question": "Who is the protagonist of Don Quixote?", "choices": ["Hamlet", "Don Quixote of La Mancha", "Macbeth", "Sir Gawain"], "answer": "Don Quixote of La Mancha", "explanation": "The idealistic knight-errant who tilts at windmills.", "topic": "Literature"},
-    {"question": "Don Quixote's squire is:", "choices": ["Sancho Panza", "Fortinbras", "Banquo", "Laertes"], "answer": "Sancho Panza", "explanation": "The practical, earthbound companion to the idealistic Don Quixote.", "topic": "Literature"},
-    {"question": "Don Quixote is a satire of:", "choices": ["Romantic love", "Chivalric ideals", "Religious faith", "Industrial revolution"], "answer": "Chivalric ideals", "explanation": "Cervantes mocks outdated notions of knight-errantry and chivalry.", "topic": "Literature"},
-    {"question": "Who is considered the 'goddess of Philippine poetry'?", "choices": ["Edith Tiempo", "Ophelia Alcantara Dimalanta", "T.S. Eliot", "Jessica Zafra"], "answer": "Edith Tiempo", "explanation": "Tiempo was a National Artist known for her masterful poetry.", "topic": "Literature"},
-    {"question": "Edith Tiempo's poetry often explored:", "choices": ["Social justice", "Love and human experience", "Gothic despair", "Chivalry"], "answer": "Love and human experience", "explanation": "Tiempo's work examined universal themes of human emotion and experience.", "topic": "Literature"},
-    {"question": "Who wrote 'Black Nativity'?", "choices": ["T.S. Eliot", "Langston Hughes", "Nathaniel Hawthorne", "Miguel de Cervantes"], "answer": "Langston Hughes", "explanation": "Hughes's gospel play celebrating the birth of Christ.", "topic": "Literature"},
-    {"question": "'Productive' word formation means:", "choices": ["Rules no longer used", "Rules actively used in modern English", "Old forms preserved", "Infixation only"], "answer": "Rules actively used in modern English", "explanation": "Productive processes can create new words in contemporary usage.", "topic": "Linguistics"},
-    {"question": "Which is lexicalized?", "choices": ["Childhood", "Runner", "Happiness", "Teacher"], "answer": "Childhood", "explanation": "Lexicalized words have meanings that aren't predictable from their parts.", "topic": "Linguistics"},
-    {"question": "Phonotactic constraints are:", "choices": ["Stress patterns", "Restrictions in sound combinations", "Vowel length rules", "Rhythm patterns"], "answer": "Restrictions in sound combinations", "explanation": "Phonotactics govern which sound sequences are permissible in a language.", "topic": "Linguistics"},
-    {"question": "Which is a voiced bilabial nasal?", "choices": ["/m/", "/n/", "/ŋ/", "/b/"], "answer": "/m/", "explanation": "The /m/ sound uses both lips with nasal airflow and voicing.", "topic": "Linguistics"},
-    {"question": "Which is a voiceless velar stop?", "choices": ["/g/", "/k/", "/d/", "/p/"], "answer": "/k/", "explanation": "The /k/ sound is produced at the velum without vocal fold vibration.", "topic": "Linguistics"},
-    {"question": "Which is a voiced alveolar stop?", "choices": ["/t/", "/d/", "/p/", "/k/"], "answer": "/d/", "explanation": "The /d/ sound is produced at the alveolar ridge with voicing.", "topic": "Linguistics"},
-    {"question": "Which is a voiceless alveolar fricative?", "choices": ["/s/", "/z/", "/ʃ/", "/ʒ/"], "answer": "/s/", "explanation": "The /s/ sound is produced at the alveolar ridge without voicing.", "topic": "Linguistics"},
-    {"question": "Which is a voiced palatal fricative?", "choices": ["/ʒ/", "/ʃ/", "/s/", "/z/"], "answer": "/ʒ/", "explanation": "The /ʒ/ sound (as in 'measure') is voiced and palatal.", "topic": "Linguistics"},
-    {"question": "Which sound is aspirated in English?", "choices": ["/p/ in 'pat'", "/p/ in 'spin'", "/b/ in 'bat'", "/g/ in 'go'"], "answer": "/p/ in 'pat'", "explanation": "Initial voiceless stops are aspirated in English.", "topic": "Linguistics"},
-    {"question": "The phoneme /k/ has which allophones?", "choices": ["[kʰ] and [k]", "[b] and [p]", "[g] and [k]", "[ŋ] and [n]"], "answer": "[kʰ] and [k]", "explanation": "/k/ is aspirated initially but unaspirated after /s/.", "topic": "Linguistics"},
-    {"question": "Which term describes the study of sound changes across time?", "choices": ["Phonology", "Historical linguistics", "Pragmatics", "Semantics"], "answer": "Historical linguistics", "explanation": "Historical linguistics studies how languages change over time.", "topic": "Linguistics"},
-    {"question": "In orthography, 'naïve' shows:", "choices": ["Umlaut", "Diaeresis", "Allophone", "Inflection"], "answer": "Diaeresis", "explanation": "The diaeresis (two dots) indicates separate vowel sounds.", "topic": "Linguistics"},
-    {"question": "In Hamlet, Ophelia's cause of death is often interpreted as:", "choices": ["Poisoning", "Suicide by drowning", "Murder by Claudius", "Natural illness"], "answer": "Suicide by drowning", "explanation": "Ophelia drowns, possibly by suicide, after her father's death.", "topic": "Literature"},
-    {"question": "'Black vernacular in poetry' is credited to:", "choices": ["Eliot", "Hughes", "Joyce", "Hawthorne"], "answer": "Hughes", "explanation": "Hughes pioneered the use of African American speech patterns in literature.", "topic": "Literature"},
-    {"question": "Which of the following is an epic of Muslim warriors in the Philippines?", "choices": ["Biag ni Lam-ang", "Dorangan", "Darangen (Maranao)", "Hudhud"], "answer": "Darangen (Maranao)", "explanation": "The Darangen is the Maranao epic celebrating Muslim heroes.", "topic": "Literature"},
-    {"question": "The term 'epigraph' refers to:", "choices": ["Closing speech of a play", "Short quotation at the beginning of a text", "Long monologue", "Poetic refrain"], "answer": "Short quotation at the beginning of a text", "explanation": "An epigraph is an inscription or quotation at the start of a literary work.", "topic": "Literature"},
-    {"question": "Comedia in Philippine literature often ends with:", "choices": ["The triumph of Christian heroes", "The downfall of the protagonist", "A tragic resolution", "A pagan victory"], "answer": "The triumph of Christian heroes", "explanation": "Spanish colonial comedia typically celebrated Christian values.", "topic": "Literature"},
-    {"question": "The Dorangan epic of the Maranao people highlights:", "choices": ["Colonial oppression", "Bravery and defense of Islam", "Mythical creation stories", "Romantic tragedies"], "answer": "Bravery and defense of Islam", "explanation": "Maranao epics celebrate Islamic heroes and values.", "topic": "Literature"},
-    {"question": "'Dark Romanticism' is often associated with:", "choices": ["T.S. Eliot", "Nathaniel Hawthorne", "Miguel de Cervantes", "James Joyce"], "answer": "Nathaniel Hawthorne", "explanation": "Hawthorne explored the darker aspects of human nature and society.", "topic": "Literature"},
-    {"question": "Murder in the Cathedral is a play by:", "choices": ["Franz Kafka", "Miguel de Cervantes", "T.S. Eliot", "James Joyce"], "answer": "T.S. Eliot", "explanation": "Eliot's verse drama about the martyrdom of Thomas Becket.", "topic": "Literature"},
-    {"question": "Four Quartets was authored by:", "choices": ["T.S. Eliot", "James Joyce", "William Blake", "Nathaniel Hawthorne"], "answer": "T.S. Eliot", "explanation": "Eliot's late masterpiece exploring time, spirituality, and memory.", "topic": "Literature"}
+  {
+    "question": "Which word has stress on the penultimate syllable?",
+    "choices": ["Banana", "Animal", "Elephant", "President"],
+    "answer": "Banana",
+    "explanation": "Penultimate stress is common in words like 'banana' (/bəˈnɑːnə/).",
+    "topic": "Phonology"
+  },
+  {
+    "question": "Which word has stress on the antepenultimate syllable?",
+    "choices": ["Family", "Banana", "Hotel", "Police"],
+    "answer": "Family",
+    "explanation": "'Family' has stress on the first (antepenultimate) syllable.",
+    "topic": "Phonology"
+  },
+  {
+    "question": "The word 'record' (noun) is stressed on:",
+    "choices": ["First syllable", "Second syllable", "Third syllable", "Last syllable"],
+    "answer": "First syllable",
+    "explanation": "As a noun, 'record' stresses the first syllable (/ˈrekɔːd/).",
+    "topic": "Phonology"
+  },
+  {
+    "question": "The word 'record' (verb) is stressed on:",
+    "choices": ["First syllable", "Second syllable", "Third syllable", "Last syllable"],
+    "answer": "Second syllable",
+    "explanation": "As a verb, 'record' stresses the second syllable (/rɪˈkɔːd/).",
+    "topic": "Phonology"
+  },
+  {
+    "question": "Which word is an example of rising intonation?",
+    "choices": ["Yes?", "Hello.", "Goodbye.", "Stop."],
+    "answer": "Yes?",
+    "explanation": "Rising intonation is common in yes–no questions, like 'Yes?'.",
+    "topic": "Phonology"
+  },
+  {
+    "question": "Which word is an example of falling intonation?",
+    "choices": ["Goodbye.", "Yes?", "Really?", "Huh?"],
+    "answer": "Goodbye.",
+    "explanation": "Falling intonation marks statements or commands, e.g., 'Goodbye.'.",
+    "topic": "Phonology"
+  },
+  {
+    "question": "Which sentence has a rising intonation?",
+    "choices": ["Are you coming?", "I am here.", "This is mine.", "Close the door."],
+    "answer": "Are you coming?",
+    "explanation": "Yes–no questions typically use rising intonation.",
+    "topic": "Phonology"
+  },
+  {
+    "question": "Which sentence has falling intonation?",
+    "choices": ["This is my book.", "Are you ready?", "Will you go?", "Can I help?"],
+    "answer": "This is my book.",
+    "explanation": "Statements usually end with falling intonation.",
+    "topic": "Phonology"
+  },
+  {
+    "question": "Which sentence uses a fall-rise intonation?",
+    "choices": ["I don’t really agree.", "Yes.", "Are you sure?", "This is final."],
+    "answer": "I don’t really agree.",
+    "explanation": "Fall–rise intonation shows reservation or partial agreement.",
+    "topic": "Phonology"
+  },
+  {
+    "question": "Which sentence uses rise-fall intonation?",
+    "choices": ["Really amazing!", "Are you there?", "This is mine.", "Okay?"],
+    "answer": "Really amazing!",
+    "explanation": "Exclamations often use rise–fall patterns to show strong feeling.",
+    "topic": "Phonology"
+  },
+  {
+    "question": "Which sentence has a tag question with rising intonation?",
+    "choices": ["You’re coming, aren’t you?", "This is true.", "Close the door.", "I know it."],
+    "answer": "You’re coming, aren’t you?",
+    "explanation": "Uncertain tag questions take rising intonation.",
+    "topic": "Phonology"
+  },
+  {
+    "question": "Which sentence has a tag question with falling intonation?",
+    "choices": ["It’s hot today, isn’t it?", "Is this yours?", "Do you agree?", "Are you coming?"],
+    "answer": "It’s hot today, isn’t it?",
+    "explanation": "When the speaker is certain, the tag question uses falling intonation.",
+    "topic": "Phonology"
+  },
+  {
+    "question": "Which is a minimal pair?",
+    "choices": ["Pin – Bin", "Cat – Dog", "Run – Walk", "High – Tall"],
+    "answer": "Pin – Bin",
+    "explanation": "Minimal pairs differ by one sound only. 'Pin' vs 'Bin' differs by /p/ vs /b/.",
+    "topic": "Phonology"
+  },
+  {
+    "question": "Which is NOT a minimal pair?",
+    "choices": ["Sit – Seat", "Fan – Van", "Go – Went", "Cat – Cut"],
+    "answer": "Go – Went",
+    "explanation": "A minimal pair must differ by only one sound. 'Go' and 'Went' differ in more than one.",
+    "topic": "Phonology"
+  },
+  {
+    "question": "Which is an example of assimilation?",
+    "choices": ["Input → /ɪmpʊt/", "Go – Went", "Cat – Dog", "Walked – Walk"],
+    "answer": "Input → /ɪmpʊt/",
+    "explanation": "Assimilation occurs when a sound changes to be more like its neighbor. /n/ → /m/ before /p/.",
+    "topic": "Phonology"
+  },
+  {
+    "question": "Which is an example of elision?",
+    "choices": ["Next day → /neks deɪ/", "Fan – Van", "Sit – Seat", "Run – Walk"],
+    "answer": "Next day → /neks deɪ/",
+    "explanation": "Elision is the omission of a sound. The /t/ is dropped in 'next day'.",
+    "topic": "Phonology"
+  },
+  {
+    "question": "Which is an example of linking?",
+    "choices": ["Go on → /goʊ wɒn/", "Fan – Van", "Sit – Seat", "Dog – Dig"],
+    "answer": "Go on → /goʊ wɒn/",
+    "explanation": "Linking adds a consonant or glide between vowel sounds, e.g., 'go on'.",
+    "topic": "Phonology"
+  },
+  {
+    "question": "Which is an example of intrusion?",
+    "choices": ["I saw it → /aɪ sɔː rɪt/", "Fan – Van", "Sit – Seat", "Cat – Cut"],
+    "answer": "I saw it → /aɪ sɔː rɪt/",
+    "explanation": "Intrusion inserts a sound like /r/ between vowels.",
+    "topic": "Phonology"
+  },
+  {
+    "question": "Which is an example of juncture?",
+    "choices": ["Ice cream vs I scream", "Fan – Van", "Sit – Seat", "Run – Walk"],
+    "answer": "Ice cream vs I scream",
+    "explanation": "Juncture differences change meaning depending on word boundary pauses.",
+    "topic": "Phonology"
+  },
+  {
+    "question": "Which is an example of contraction?",
+    "choices": ["I will → I'll", "Fan – Van", "Sit – Seat", "Go – Went"],
+    "answer": "I will → I'll",
+    "explanation": "Contraction is shortening words by combining them, e.g., 'I will' → 'I'll'.",
+    "topic": "Phonology"
+  },
+  {
+    "question": "Who wrote the novel 'Things Fall Apart'?",
+    "choices": ["Chinua Achebe", "Ngugi wa Thiong'o", "Wole Soyinka", "Ben Okri"],
+    "answer": "Chinua Achebe",
+    "explanation": "Achebe’s 1958 novel is a landmark of African literature.",
+    "topic": "Literature"
+  },
+  {
+    "question": "Which American poet is known for the line 'Because I could not stop for Death – He kindly stopped for me'?",
+    "choices": ["Emily Dickinson", "Sylvia Plath", "Anne Bradstreet", "Maya Angelou"],
+    "answer": "Emily Dickinson",
+    "explanation": "One of Dickinson’s most famous poems, reflecting on mortality.",
+    "topic": "Literature"
+  },
+  {
+    "question": "The dystopian novel 'Fahrenheit 451' was written by:",
+    "choices": ["Ray Bradbury", "Aldous Huxley", "George Orwell", "Philip K. Dick"],
+    "answer": "Ray Bradbury",
+    "explanation": "Bradbury’s novel depicts a society where books are banned and burned.",
+    "topic": "Literature"
+  },
+  {
+    "question": "Who is the author of 'The Bell Jar'?",
+    "choices": ["Sylvia Plath", "Virginia Woolf", "Margaret Atwood", "Zadie Smith"],
+    "answer": "Sylvia Plath",
+    "explanation": "Plath’s semi-autobiographical novel about mental health.",
+    "topic": "Literature"
+  },
+  {
+    "question": "The Divine Comedy was originally written in which language?",
+    "choices": ["Italian", "Latin", "Greek", "French"],
+    "answer": "Italian",
+    "explanation": "Dante composed his epic poem in Tuscan Italian, elevating it as a literary language.",
+    "topic": "Literature"
+  },
+  {
+    "question": "Who is the tragic hero in Shakespeare’s 'Macbeth'?",
+    "choices": ["Macbeth", "Banquo", "Duncan", "Macduff"],
+    "answer": "Macbeth",
+    "explanation": "Macbeth’s ambition and guilt drive his downfall.",
+    "topic": "Literature"
+  },
+  {
+    "question": "Which modernist writer is known for 'To the Lighthouse'?",
+    "choices": ["Virginia Woolf", "James Joyce", "Katherine Mansfield", "E.M. Forster"],
+    "answer": "Virginia Woolf",
+    "explanation": "Woolf’s novel exemplifies stream-of-consciousness narration.",
+    "topic": "Literature"
+  },
+  {
+    "question": "The play 'Waiting for Godot' was authored by:",
+    "choices": ["Samuel Beckett", "Harold Pinter", "Eugene Ionesco", "Jean-Paul Sartre"],
+    "answer": "Samuel Beckett",
+    "explanation": "A central work of absurdist theatre, first performed in 1953.",
+    "topic": "Literature"
+  },
+  {
+    "question": "Who is the main character in Miguel de Cervantes’ 'Don Quixote'?",
+    "choices": ["Alonso Quixano", "Sancho Panza", "El Cid", "Fernando"],
+    "answer": "Alonso Quixano",
+    "explanation": "Alonso Quixano renames himself Don Quixote and sets out as a knight-errant.",
+    "topic": "Literature"
+  },
+  {
+    "question": "Which novel features the character Atticus Finch?",
+    "choices": ["To Kill a Mockingbird", "Of Mice and Men", "The Grapes of Wrath", "The Catcher in the Rye"],
+    "answer": "To Kill a Mockingbird",
+    "explanation": "Harper Lee’s classic about justice and racial inequality.",
+    "topic": "Literature"
+  },
+  {
+    "question": "The phrase 'Big Brother is watching you' comes from which novel?",
+    "choices": ["1984", "Animal Farm", "Brave New World", "Fahrenheit 451"],
+    "answer": "1984",
+    "explanation": "Orwell’s dystopian novel depicts constant surveillance.",
+    "topic": "Literature"
+  },
+  {
+    "question": "Who is the Roman poet of 'Metamorphoses'?",
+    "choices": ["Ovid", "Virgil", "Horace", "Catullus"],
+    "answer": "Ovid",
+    "explanation": "Ovid’s epic poem retells Greco-Roman myths of transformation.",
+    "topic": "Literature"
+  },
+  {
+    "question": "Which American novelist wrote 'Beloved'?",
+    "choices": ["Toni Morrison", "Alice Walker", "Zora Neale Hurston", "James Baldwin"],
+    "answer": "Toni Morrison",
+    "explanation": "Morrison’s Pulitzer-winning novel about slavery and memory.",
+    "topic": "Literature"
+  },
+  {
+    "question": "In which Shakespeare play do the witches chant 'Double, double toil and trouble'?",
+    "choices": ["Macbeth", "Hamlet", "King Lear", "The Tempest"],
+    "answer": "Macbeth",
+    "explanation": "The Weird Sisters say this in Act IV.",
+    "topic": "Literature"
+  },
+  {
+    "question": "Which Russian author wrote 'Anna Karenina'?",
+    "choices": ["Leo Tolstoy", "Fyodor Dostoevsky", "Anton Chekhov", "Ivan Turgenev"],
+    "answer": "Leo Tolstoy",
+    "explanation": "Tolstoy’s tragic novel of love, betrayal, and society.",
+    "topic": "Literature"
+  },
+  {
+    "question": "The Harlem Renaissance poet who wrote 'The Negro Speaks of Rivers' was:",
+    "choices": ["Langston Hughes", "Claude McKay", "Countee Cullen", "James Weldon Johnson"],
+    "answer": "Langston Hughes",
+    "explanation": "Hughes’ poem became an anthem of Black identity.",
+    "topic": "Literature"
+  },
+  {
+    "question": "Who is the protagonist of Homer’s 'Iliad'?",
+    "choices": ["Achilles", "Odysseus", "Agamemnon", "Hector"],
+    "answer": "Achilles",
+    "explanation": "The Greek hero whose rage drives the epic.",
+    "topic": "Literature"
+  },
+  {
+    "question": "Which Shakespearean comedy features twins Viola and Sebastian?",
+    "choices": ["Twelfth Night", "A Midsummer Night’s Dream", "As You Like It", "The Comedy of Errors"],
+    "answer": "Twelfth Night",
+    "explanation": "Shakespeare’s comedy of mistaken identity and love.",
+    "topic": "Literature"
+  },
+  {
+    "question": "The first African American woman to win the Nobel Prize in Literature was:",
+    "choices": ["Toni Morrison", "Maya Angelou", "Alice Walker", "Gwendolyn Brooks"],
+    "answer": "Toni Morrison",
+    "explanation": "Morrison won the Nobel Prize in 1993.",
+    "topic": "Literature"
+  },
+  {
+    "question": "Which novel features the line 'So we beat on, boats against the current, borne back ceaselessly into the past'?",
+    "choices": ["The Great Gatsby", "Of Mice and Men", "Catch-22", "Lord of the Flies"],
+    "answer": "The Great Gatsby",
+    "explanation": "The closing line of Fitzgerald’s classic American novel.",
+    "topic": "Literature"
+  },
+   {
+    "question": "Which branch of linguistics studies the structure of sentences?",
+    "choices": ["Phonology", "Syntax", "Morphology", "Semantics"],
+    "answer": "Syntax",
+    "explanation": "Syntax is the study of sentence structure and rules governing word order.",
+    "topic": "Linguistics"
+  },
+  {
+    "question": "Which branch studies the smallest units of sound?",
+    "choices": ["Pragmatics", "Phonology", "Morphology", "Syntax"],
+    "answer": "Phonology",
+    "explanation": "Phonology analyzes the smallest sound units (phonemes) and their patterns.",
+    "topic": "Linguistics"
+  },
+  {
+    "question": "The study of human sounds in general is:",
+    "choices": ["Phonetics", "Semantics", "Morphology", "Pragmatics"],
+    "answer": "Phonetics",
+    "explanation": "Phonetics examines how speech sounds are produced, transmitted, and perceived.",
+    "topic": "Linguistics"
+  },
+  {
+    "question": "Which branch studies word formation?",
+    "choices": ["Syntax", "Semantics", "Morphology", "Pragmatics"],
+    "answer": "Morphology",
+    "explanation": "Morphology focuses on how words are formed from morphemes.",
+    "topic": "Linguistics"
+  },
+  {
+    "question": "The process of learning language is called:",
+    "choices": ["Language Change", "Language Acquisition", "Sociolinguistics", "Applied Linguistics"],
+    "answer": "Language Acquisition",
+    "explanation": "Language acquisition is the process by which humans learn to perceive, produce, and understand language.",
+    "topic": "Linguistics"
+  },
+  {
+    "question": "Applied linguistics is mainly concerned with:",
+    "choices": ["Theories of syntax", "Practical uses like language teaching", "Mythology of language", "Cultural criticism"],
+    "answer": "Practical uses like language teaching",
+    "explanation": "Applied linguistics uses linguistic theory to solve real-world problems like language teaching and translation.",
+    "topic": "Linguistics"
+  },
+  {
+    "question": "The field that studies historical processes in language is:",
+    "choices": ["Pragmatics", "Semantics", "Language Change", "Sociolinguistics"],
+    "answer": "Language Change",
+    "explanation": "Language change studies how languages evolve over time.",
+    "topic": "Linguistics"
+  },
+  {
+    "question": "Which field focuses on social uses of language?",
+    "choices": ["Sociolinguistics", "Syntax", "Semantics", "Morphology"],
+    "answer": "Sociolinguistics",
+    "explanation": "Sociolinguistics examines how language is used in social contexts.",
+    "topic": "Linguistics"
+  },
+  {
+    "question": "The smallest unit of meaning in language is a:",
+    "choices": ["Phoneme", "Morpheme", "Grapheme", "Allophone"],
+    "answer": "Morpheme",
+    "explanation": "A morpheme is the smallest meaningful unit of language.",
+    "topic": "Linguistics"
+  },
+  {
+    "question": "Variations of a single morpheme (like plural -s) are called:",
+    "choices": ["Phones", "Graphemes", "Allomorphs", "Bound morphemes"],
+    "answer": "Allomorphs",
+    "explanation": "Allomorphs are variant forms of a morpheme that occur in specific contexts.",
+    "topic": "Linguistics"
+  },
+  {
+    "question": "Who wrote the epic poem 'Paradise Lost'?",
+    "choices": ["John Milton", "Geoffrey Chaucer", "Edmund Spenser", "Alexander Pope"],
+    "answer": "John Milton",
+    "explanation": "Milton's 17th-century epic poem explores the Fall of Man and Satan's rebellion.",
+    "topic": "Literature"
+  },
+  {
+    "question": "Which novel begins with the line 'Call me Ishmael'?",
+    "choices": ["Moby-Dick", "Heart of Darkness", "The Old Man and the Sea", "Robinson Crusoe"],
+    "answer": "Moby-Dick",
+    "explanation": "Herman Melville’s classic about obsession and revenge against the white whale.",
+    "topic": "Literature"
+  },
+  {
+    "question": "Who is the tragic hero in Shakespeare’s 'Othello'?",
+    "choices": ["Othello", "Iago", "Hamlet", "Macbeth"],
+    "answer": "Othello",
+    "explanation": "The Moorish general whose jealousy leads to his downfall.",
+    "topic": "Literature"
+  },
+  {
+    "question": "Which Irish writer authored 'Ulysses'?",
+    "choices": ["James Joyce", "W.B. Yeats", "Oscar Wilde", "Samuel Beckett"],
+    "answer": "James Joyce",
+    "explanation": "Joyce’s landmark modernist novel mirrors Homer’s Odyssey in Dublin.",
+    "topic": "Literature"
+  },
+  {
+    "question": "What is the pen name of Samuel Langhorne Clemens?",
+    "choices": ["Mark Twain", "Lewis Carroll", "O. Henry", "George Eliot"],
+    "answer": "Mark Twain",
+    "explanation": "Clemens wrote 'The Adventures of Tom Sawyer' and 'Adventures of Huckleberry Finn'.",
+    "topic": "Literature"
+  },
+  {
+    "question": "Which poet is known for the collection 'Leaves of Grass'?",
+    "choices": ["Walt Whitman", "Emily Dickinson", "Henry Wadsworth Longfellow", "Robert Frost"],
+    "answer": "Walt Whitman",
+    "explanation": "Whitman celebrated democracy, nature, and the human spirit in his free verse.",
+    "topic": "Literature"
+  },
+  {
+    "question": "Who wrote 'Crime and Punishment'?",
+    "choices": ["Fyodor Dostoevsky", "Leo Tolstoy", "Anton Chekhov", "Ivan Turgenev"],
+    "answer": "Fyodor Dostoevsky",
+    "explanation": "The novel explores guilt and morality through Raskolnikov’s crime and conscience.",
+    "topic": "Literature"
+  },
+  {
+    "question": "Which Shakespeare play features the characters Rosencrantz and Guildenstern?",
+    "choices": ["Hamlet", "King Lear", "Macbeth", "Othello"],
+    "answer": "Hamlet",
+    "explanation": "The two courtiers serve as spies and comic relief in Shakespeare’s tragedy.",
+    "topic": "Literature"
+  },
+  {
+    "question": "Who authored 'The Divine Comedy'?",
+    "choices": ["Dante Alighieri", "Virgil", "Giovanni Boccaccio", "Francesco Petrarch"],
+    "answer": "Dante Alighieri",
+    "explanation": "An epic poem describing the journey through Hell, Purgatory, and Paradise.",
+    "topic": "Literature"
+  },
+  {
+    "question": "Which English author wrote 'Great Expectations'?",
+    "choices": ["Charles Dickens", "Thomas Hardy", "George Eliot", "William Thackeray"],
+    "answer": "Charles Dickens",
+    "explanation": "Dickens’ bildungsroman follows Pip’s growth from childhood to adulthood.",
+    "topic": "Literature"
+  },
+  {
+    "question": "Who wrote the play 'Pygmalion'?",
+    "choices": ["George Bernard Shaw", "Oscar Wilde", "Henrik Ibsen", "Tennessee Williams"],
+    "answer": "George Bernard Shaw",
+    "explanation": "Shaw’s play satirizes class distinctions and language, later adapted into 'My Fair Lady'.",
+    "topic": "Literature"
+  },
+  {
+    "question": "Which novel features the character Atticus Finch?",
+    "choices": ["To Kill a Mockingbird", "Of Mice and Men", "The Grapes of Wrath", "Catcher in the Rye"],
+    "answer": "To Kill a Mockingbird",
+    "explanation": "Harper Lee’s novel about racial injustice in the American South.",
+    "topic": "Literature"
+  },
+  {
+    "question": "Who is the author of 'The Sound and the Fury'?",
+    "choices": ["William Faulkner", "Ernest Hemingway", "John Steinbeck", "F. Scott Fitzgerald"],
+    "answer": "William Faulkner",
+    "explanation": "Faulkner’s modernist novel employs stream-of-consciousness to depict the Compson family’s decline.",
+    "topic": "Literature"
+  },
+  {
+    "question": "Which Romantic poet wrote 'Ode on a Grecian Urn'?",
+    "choices": ["John Keats", "Percy Bysshe Shelley", "Lord Byron", "William Blake"],
+    "answer": "John Keats",
+    "explanation": "Keats meditates on beauty and permanence in art.",
+    "topic": "Literature"
+  },
+  {
+    "question": "Who authored the dystopian novel '1984'?",
+    "choices": ["George Orwell", "Aldous Huxley", "Ray Bradbury", "Philip K. Dick"],
+    "answer": "George Orwell",
+    "explanation": "Orwell’s vision of totalitarian control through surveillance and language.",
+    "topic": "Literature"
+  },
+  {
+    "question": "Which epic poem tells the story of the Trojan War and Achilles?",
+    "choices": ["The Iliad", "The Odyssey", "The Aeneid", "Metamorphoses"],
+    "answer": "The Iliad",
+    "explanation": "Homer’s epic centers on the wrath of Achilles during the Trojan War.",
+    "topic": "Literature"
+  },
+  {
+    "question": "Who wrote the novel 'The Stranger' (L'Étranger)?",
+    "choices": ["Albert Camus", "Jean-Paul Sartre", "Marcel Proust", "André Gide"],
+    "answer": "Albert Camus",
+    "explanation": "Camus’ existential novel explores absurdism through Meursault’s detachment.",
+    "topic": "Literature"
+  },
+  {
+    "question": "Which Shakespeare comedy features the characters Viola and Malvolio?",
+    "choices": ["Twelfth Night", "As You Like It", "Much Ado About Nothing", "A Midsummer Night’s Dream"],
+    "answer": "Twelfth Night",
+    "explanation": "A comedy of mistaken identities, love, and festive mischief.",
+    "topic": "Literature"
+  },
+  {
+    "question": "Who wrote 'The Canterbury Tales'?",
+    "choices": ["Geoffrey Chaucer", "John Gower", "William Langland", "Thomas Malory"],
+    "answer": "Geoffrey Chaucer",
+    "explanation": "Chaucer’s collection of stories told by pilgrims journeying to Canterbury.",
+    "topic": "Literature"
+  },
+  {
+    "question": "Which American poet is famous for the line 'Because I could not stop for Death'?",
+    "choices": ["Emily Dickinson", "Sylvia Plath", "Maya Angelou", "Anne Sexton"],
+    "answer": "Emily Dickinson",
+    "explanation": "Dickinson’s poem personifies death as a courteous suitor.",
+    "topic": "Literature"
+  },
+    {
+    "question": "Which novel features the character Jay Gatsby?",
+    "choices": ["The Great Gatsby", "This Side of Paradise", "Tender Is the Night", "Of Mice and Men"],
+    "answer": "The Great Gatsby",
+    "explanation": "F. Scott Fitzgerald’s classic about wealth, love, and the American Dream in the Jazz Age.",
+    "topic": "Literature"
+  },
+  {
+    "question": "Who wrote the epic poem 'The Aeneid'?",
+    "choices": ["Virgil", "Homer", "Ovid", "Horace"],
+    "answer": "Virgil",
+    "explanation": "Virgil’s Roman epic follows Aeneas’ journey to found Rome after the fall of Troy.",
+    "topic": "Literature"
+  },
+  {
+    "question": "Which American author wrote 'The Scarlet Letter'?",
+    "choices": ["Nathaniel Hawthorne", "Herman Melville", "Washington Irving", "Edgar Allan Poe"],
+    "answer": "Nathaniel Hawthorne",
+    "explanation": "Hawthorne’s novel explores sin, guilt, and redemption in Puritan New England.",
+    "topic": "Literature"
+  },
+  {
+    "question": "Who is the author of 'Waiting for Godot'?",
+    "choices": ["Samuel Beckett", "Harold Pinter", "Jean-Paul Sartre", "Tom Stoppard"],
+    "answer": "Samuel Beckett",
+    "explanation": "Beckett’s absurdist play portrays two men waiting endlessly for someone who never arrives.",
+    "topic": "Literature"
+  },
+  {
+    "question": "Which Brontë sister wrote 'Jane Eyre'?",
+    "choices": ["Charlotte Brontë", "Emily Brontë", "Anne Brontë", "Maria Brontë"],
+    "answer": "Charlotte Brontë",
+    "explanation": "Charlotte’s novel follows an orphaned governess navigating love and independence.",
+    "topic": "Literature"
+  },
+  {
+    "question": "Who authored 'Brave New World'?",
+    "choices": ["Aldous Huxley", "George Orwell", "Ray Bradbury", "Anthony Burgess"],
+    "answer": "Aldous Huxley",
+    "explanation": "Huxley’s dystopian novel critiques consumerism and technological control.",
+    "topic": "Literature"
+  },
+  {
+    "question": "Which Russian author wrote 'War and Peace'?",
+    "choices": ["Leo Tolstoy", "Fyodor Dostoevsky", "Anton Chekhov", "Maxim Gorky"],
+    "answer": "Leo Tolstoy",
+    "explanation": "Tolstoy’s sweeping epic intertwines personal and historical narratives during the Napoleonic Wars.",
+    "topic": "Literature"
+  },
+  {
+    "question": "Who wrote 'The Waste Land'?",
+    "choices": ["T.S. Eliot", "Ezra Pound", "W.B. Yeats", "Wallace Stevens"],
+    "answer": "T.S. Eliot",
+    "explanation": "Eliot’s modernist poem captures the fragmentation and despair of post-WWI Europe.",
+    "topic": "Literature"
+  },
+  {
+    "question": "Which novel by Mary Shelley is considered the first science fiction novel?",
+    "choices": ["Frankenstein", "The Last Man", "Mathilda", "Valperga"],
+    "answer": "Frankenstein",
+    "explanation": "Mary Shelley’s tale of Victor Frankenstein and his creation is often cited as the first sci-fi novel.",
+    "topic": "Literature"
+  },
+  {
+    "question": "Who wrote the allegorical novella 'Animal Farm'?",
+    "choices": ["George Orwell", "Aldous Huxley", "Kurt Vonnegut", "Ray Bradbury"],
+    "answer": "George Orwell",
+    "explanation": "Orwell’s satire criticizes totalitarianism through a tale of farm animals’ rebellion.",
+    "topic": "Literature"
+  },
+  {
+    "question": "Who wrote the novel 'Crime and Punishment'?",
+    "choices": ["Fyodor Dostoevsky", "Leo Tolstoy", "Anton Chekhov", "Ivan Turgenev"],
+    "answer": "Fyodor Dostoevsky",
+    "explanation": "Dostoevsky’s psychological novel explores guilt, morality, and redemption through Raskolnikov.",
+    "topic": "Literature"
+  },
+  {
+    "question": "Which American writer is known for the novel 'Moby-Dick'?",
+    "choices": ["Herman Melville", "Nathaniel Hawthorne", "Mark Twain", "Edgar Allan Poe"],
+    "answer": "Herman Melville",
+    "explanation": "Melville’s novel of obsession follows Captain Ahab’s pursuit of the white whale.",
+    "topic": "Literature"
+  },
+  {
+    "question": "Who authored the play 'Death of a Salesman'?",
+    "choices": ["Arthur Miller", "Tennessee Williams", "Eugene O’Neill", "Edward Albee"],
+    "answer": "Arthur Miller",
+    "explanation": "Miller’s tragic play critiques the American Dream through the downfall of Willy Loman.",
+    "topic": "Literature"
+  },
+  {
+    "question": "Which poet wrote 'Because I could not stop for Death'?",
+    "choices": ["Emily Dickinson", "Sylvia Plath", "Anne Bradstreet", "Elizabeth Bishop"],
+    "answer": "Emily Dickinson",
+    "explanation": "Dickinson’s poem personifies death as a courteous companion on a carriage ride.",
+    "topic": "Literature"
+  },
+  {
+    "question": "Who wrote 'One Hundred Years of Solitude'?",
+    "choices": ["Gabriel García Márquez", "Mario Vargas Llosa", "Jorge Luis Borges", "Isabel Allende"],
+    "answer": "Gabriel García Márquez",
+    "explanation": "Márquez’s masterpiece of magical realism tells the story of the Buendía family in Macondo.",
+    "topic": "Literature"
+  },
+  {
+    "question": "Which author created the detective Sherlock Holmes?",
+    "choices": ["Arthur Conan Doyle", "Agatha Christie", "Wilkie Collins", "Dorothy L. Sayers"],
+    "answer": "Arthur Conan Doyle",
+    "explanation": "Doyle’s stories about Sherlock Holmes and Dr. Watson remain iconic in detective fiction.",
+    "topic": "Literature"
+  },
+  {
+    "question": "Who is the author of the play 'Oedipus Rex'?",
+    "choices": ["Sophocles", "Euripides", "Aeschylus", "Aristophanes"],
+    "answer": "Sophocles",
+    "explanation": "Sophocles’ tragedy follows King Oedipus’ doomed search for truth and self-knowledge.",
+    "topic": "Literature"
+  },
+  {
+    "question": "Which 20th-century poet wrote 'Do Not Go Gentle into That Good Night'?",
+    "choices": ["Dylan Thomas", "W.H. Auden", "Seamus Heaney", "Philip Larkin"],
+    "answer": "Dylan Thomas",
+    "explanation": "Thomas’ villanelle urges resistance against death and the fading of life.",
+    "topic": "Literature"
+  },
+  {
+    "question": "Who wrote the novel 'Pride and Prejudice'?",
+    "choices": ["Jane Austen", "Charlotte Brontë", "George Eliot", "Mary Shelley"],
+    "answer": "Jane Austen",
+    "explanation": "Austen’s romantic novel critiques social class and gender roles in Regency England.",
+    "topic": "Literature"
+  },
+  {
+    "question": "Which Shakespeare play features the line 'All the world’s a stage'?",
+    "choices": ["As You Like It", "Hamlet", "Macbeth", "Twelfth Night"],
+    "answer": "As You Like It",
+    "explanation": "The famous monologue by Jaques reflects on life’s stages in Shakespeare’s comedy.",
+    "topic": "Literature"
+  }, 
+   {
+    "question": "The Elizabethan Age (1558–1603) is also known as the:",
+    "choices": ["Romantic Age", "Golden Age of English Literature", "Modernist Age", "Augustan Age"],
+    "answer": "Golden Age of English Literature",
+    "explanation": "The Elizabethan period is called the Golden Age because of its flourishing drama, poetry, and exploration.",
+    "topic": "Literature"
+  },
+  {
+    "question": "The Harlem Renaissance primarily emphasized:",
+    "choices": ["Chivalry and medieval ideals", "Racial pride and Black cultural identity", "The tragedy of ambition", "European nationalism"],
+    "answer": "Racial pride and Black cultural identity",
+    "explanation": "The Harlem Renaissance celebrated African American culture through literature, art, and music.",
+    "topic": "Literature"
+  },
+  {
+    "question": "Which period is closely associated with Shakespeare, Marlowe, and Spenser?",
+    "choices": ["Victorian", "Elizabethan", "Restoration", "Modernist"],
+    "answer": "Elizabethan",
+    "explanation": "The Elizabethan era saw the rise of great dramatists like Shakespeare, Marlowe, and poets like Spenser.",
+    "topic": "Literature"
+  },
+  {
+    "question": "“Willing suspension of disbelief” refers to:",
+    "choices": ["Rejecting reality completely", "Temporarily accepting the implausible in fiction", "Denying logic permanently", "Blind faith in literature"],
+    "answer": "Temporarily accepting the implausible in fiction",
+    "explanation": "Coleridge’s concept where readers accept unrealistic elements in stories for enjoyment.",
+    "topic": "Literature"
+  },
+  {
+    "question": "Pastoral poetry is characterized by:",
+    "choices": ["Urban settings", "Scientific inquiry", "Rural and rustic idealism", "Industrial progress"],
+    "answer": "Rural and rustic idealism",
+    "explanation": "Pastoral poetry idealizes the simplicity and beauty of rural life.",
+    "topic": "Literature"
+  },
+  {
+    "question": "Which is the central theme of 'The Waste Land'?",
+    "choices": ["Joyful renewal", "Post-war spiritual crisis", "Romantic optimism", "Elizabethan nationalism"],
+    "answer": "Post-war spiritual crisis",
+    "explanation": "T.S. Eliot’s 'The Waste Land' reflects the fragmentation and disillusionment after World War I.",
+    "topic": "Literature"
+  },
+  {
+    "question": "Comedia in Philippine literature often ends with:",
+    "choices": ["The triumph of Christian heroes", "The downfall of the protagonist", "A tragic resolution", "A pagan victory"],
+    "answer": "The triumph of Christian heroes",
+    "explanation": "The comedia often portrays Christian heroes defeating non-Christian forces.",
+    "topic": "Literature"
+  },
+  {
+    "question": "The Dorangan epic of the Maranao people highlights:",
+    "choices": ["Colonial oppression", "Bravery and defense of Islam", "Mythical creation stories", "Romantic tragedies"],
+    "answer": "Bravery and defense of Islam",
+    "explanation": "The Dorangan epic emphasizes courage and religious devotion in Maranao culture.",
+    "topic": "Literature"
+  },
+  {
+    "question": "A literary work that includes a short quotation or poem at the start is using:",
+    "choices": ["Epilogue", "Monologue", "Epigraph", "Prologue"],
+    "answer": "Epigraph",
+    "explanation": "An epigraph sets the tone or theme of a literary work through a short quotation or poem.",
+    "topic": "Literature"
+  },
+  {
+    "question": "A character’s private speech addressed to the audience, revealing inner thoughts, is a:",
+    "choices": ["Dialogue", "Soliloquy", "Monologue", "Epigraph"],
+    "answer": "Soliloquy",
+    "explanation": "A soliloquy in drama reveals a character’s inner conflicts and thoughts directly to the audience.",
+    "topic": "Literature"
+  },
+  {
+    "question": "Which Filipino writer is known as the 'Father of the Tagalog Zarzuela'?",
+    "choices": ["Severino Reyes", "Amado V. Hernandez", "Francisco Balagtas", "Lope K. Santos"],
+    "answer": "Severino Reyes",
+    "explanation": "Severino Reyes, also called 'Lola Basyang', pioneered the Tagalog zarzuela in the Philippines.",
+    "topic": "Literature"
+  },
+  {
+    "question": "Who wrote the epic poem 'Paradise Lost'?",
+    "choices": ["John Milton", "Geoffrey Chaucer", "John Dryden", "Alexander Pope"],
+    "answer": "John Milton",
+    "explanation": "Milton’s 'Paradise Lost' is a blank verse epic about the Fall of Man.",
+    "topic": "Literature"
+  },
+  {
+    "question": "What literary movement is associated with Walt Whitman?",
+    "choices": ["Romanticism", "Realism", "Transcendentalism", "Modernism"],
+    "answer": "Transcendentalism",
+    "explanation": "Whitman’s poetry, especially 'Leaves of Grass', embodies transcendentalist ideals of nature and individuality.",
+    "topic": "Literature"
+  },
+  {
+    "question": "Who is the author of 'Don Quixote'?",
+    "choices": ["Miguel de Cervantes", "Lope de Vega", "Garcilaso de la Vega", "Fernando de Rojas"],
+    "answer": "Miguel de Cervantes",
+    "explanation": "Cervantes’ 'Don Quixote' satirizes chivalric romances and is considered the first modern novel.",
+    "topic": "Literature"
+  },
+  {
+    "question": "The term 'stream of consciousness' is most associated with which author?",
+    "choices": ["Virginia Woolf", "Ernest Hemingway", "Mark Twain", "F. Scott Fitzgerald"],
+    "answer": "Virginia Woolf",
+    "explanation": "Woolf used stream of consciousness to explore her characters’ inner lives in novels like 'Mrs. Dalloway'.",
+    "topic": "Literature"
+  },
+  {
+    "question": "Which Filipino epic tells the story of Lam-ang?",
+    "choices": ["Biag ni Lam-ang", "Darangen", "Hudhud", "Alim"],
+    "answer": "Biag ni Lam-ang",
+    "explanation": "The Ilocano epic 'Biag ni Lam-ang' narrates the heroic adventures of Lam-ang.",
+    "topic": "Literature"
+  },
+  {
+    "question": "In Greek tragedy, the concept of 'hamartia' refers to:",
+    "choices": ["Fate controlled by gods", "A fatal flaw or error in judgment", "Comic relief", "Divine punishment"],
+    "answer": "A fatal flaw or error in judgment",
+    "explanation": "Hamartia is the tragic flaw leading to a hero’s downfall in classical tragedies.",
+    "topic": "Literature"
+  },
+  {
+    "question": "Who wrote 'The Raven'?",
+    "choices": ["Edgar Allan Poe", "Walt Whitman", "Robert Frost", "Ralph Waldo Emerson"],
+    "answer": "Edgar Allan Poe",
+    "explanation": "Poe’s 'The Raven' is a narrative poem known for its dark atmosphere and repetition of 'Nevermore'.",
+    "topic": "Literature"
+  },
+  {
+    "question": "What is the central theme of Emily Brontë’s 'Wuthering Heights'?",
+    "choices": ["Forbidden love and revenge", "Scientific progress", "Colonial conquest", "Religious salvation"],
+    "answer": "Forbidden love and revenge",
+    "explanation": "The novel explores intense passion, vengeance, and the destructive nature of obsession.",
+    "topic": "Literature"
+  },
+  {
+    "question": "Which Filipino writer is remembered for the novel 'Banaag at Sikat'?",
+    "choices": ["Lope K. Santos", "Severino Reyes", "Nick Joaquin", "Manuel Arguilla"],
+    "answer": "Lope K. Santos",
+    "explanation": "Lope K. Santos’ 'Banaag at Sikat' is considered the first socialist-oriented novel in the Philippines.",
+    "topic": "Literature"
+  },
+  {
+    "question": "Who wrote the play 'Waiting for Godot'?",
+    "choices": ["Samuel Beckett", "Jean-Paul Sartre", "Harold Pinter", "Eugene Ionesco"],
+    "answer": "Samuel Beckett",
+    "explanation": "Beckett’s absurdist play portrays two characters endlessly waiting for someone who never arrives.",
+    "topic": "Literature"
+  },
+  {
+    "question": "Which literary term refers to an indirect or passing reference to another work or event?",
+    "choices": ["Allusion", "Metaphor", "Irony", "Foreshadowing"],
+    "answer": "Allusion",
+    "explanation": "An allusion relies on the reader’s familiarity with another text, event, or figure to add meaning.",
+    "topic": "Literature"
+  },
+  {
+    "question": "The novel 'Noli Me Tangere' was written by:",
+    "choices": ["José Rizal", "Andrés Bonifacio", "Marcelo H. del Pilar", "Graciano López Jaena"],
+    "answer": "José Rizal",
+    "explanation": "Rizal’s novel exposed social injustices in colonial Philippines and inspired nationalist movements.",
+    "topic": "Literature"
+  },
+  {
+    "question": "Who is the author of 'The Great Gatsby'?",
+    "choices": ["F. Scott Fitzgerald", "Ernest Hemingway", "John Steinbeck", "William Faulkner"],
+    "answer": "F. Scott Fitzgerald",
+    "explanation": "Fitzgerald’s novel critiques the American Dream through the tragic story of Jay Gatsby.",
+    "topic": "Literature"
+  },
+  {
+    "question": "Which poet wrote 'The Road Not Taken'?",
+    "choices": ["Robert Frost", "Walt Whitman", "Emily Dickinson", "Carl Sandburg"],
+    "answer": "Robert Frost",
+    "explanation": "Frost’s poem reflects on life choices and the significance of decisions made.",
+    "topic": "Literature"
+  },
+  {
+    "question": "In literature, a 'bildungsroman' is a novel that:",
+    "choices": ["Depicts a character’s moral and psychological growth", "Focuses on war and conflict", "Centers on political revolutions", "Explores supernatural events"],
+    "answer": "Depicts a character’s moral and psychological growth",
+    "explanation": "A bildungsroman is a coming-of-age story that traces a character’s development.",
+    "topic": "Literature"
+  },
+  {
+    "question": "Which Shakespeare tragedy is set in Scotland?",
+    "choices": ["Macbeth", "Othello", "King Lear", "Hamlet"],
+    "answer": "Macbeth",
+    "explanation": "‘Macbeth’ tells the story of ambition, prophecy, and downfall in medieval Scotland.",
+    "topic": "Literature"
+  },
+  {
+    "question": "Who wrote 'To Kill a Mockingbird'?",
+    "choices": ["Harper Lee", "Toni Morrison", "Alice Walker", "Zora Neale Hurston"],
+    "answer": "Harper Lee",
+    "explanation": "Lee’s novel explores racial injustice and moral growth in the American South.",
+    "topic": "Literature"
+  },
+  {
+    "question": "The Iliad primarily focuses on which conflict?",
+    "choices": ["The Trojan War", "The Persian Wars", "The Peloponnesian War", "The Punic Wars"],
+    "answer": "The Trojan War",
+    "explanation": "Homer’s epic poem narrates key events during the Trojan War, focusing on Achilles’ wrath.",
+    "topic": "Literature"
+  },
+  {
+    "question": "Who is the Filipino writer known for 'The Woman Who Had Two Navels'?",
+    "choices": ["Nick Joaquin", "Bienvenido Santos", "Carlos Bulosan", "N.V.M. Gonzalez"],
+    "answer": "Nick Joaquin",
+    "explanation": "Nick Joaquin’s novel examines colonial identity, history, and culture in the Philippines.",
+    "topic": "Literature"
+  },
+    {
+    "question": "Who wrote 'Pride and Prejudice'?",
+    "choices": ["Jane Austen", "Charlotte Brontë", "Emily Brontë", "George Eliot"],
+    "answer": "Jane Austen",
+    "explanation": "Austen’s novel critiques class, marriage, and social expectations in 19th-century England.",
+    "topic": "Literature"
+  },
+  {
+    "question": "The Greek tragedian who wrote 'Oedipus Rex' is:",
+    "choices": ["Sophocles", "Aeschylus", "Euripides", "Aristophanes"],
+    "answer": "Sophocles",
+    "explanation": "Sophocles’ tragedy explores fate, prophecy, and self-discovery.",
+    "topic": "Literature"
+  },
+  {
+    "question": "Which novel begins with the line 'Call me Ishmael'?",
+    "choices": ["Moby-Dick", "The Old Man and the Sea", "Heart of Darkness", "Treasure Island"],
+    "answer": "Moby-Dick",
+    "explanation": "Melville’s classic whaling tale begins with this famous line.",
+    "topic": "Literature"
+  },
+  {
+    "question": "Who is the author of 'One Hundred Years of Solitude'?",
+    "choices": ["Gabriel García Márquez", "Mario Vargas Llosa", "Pablo Neruda", "Jorge Luis Borges"],
+    "answer": "Gabriel García Márquez",
+    "explanation": "Márquez’s novel is a landmark of magical realism, chronicling the Buendía family.",
+    "topic": "Literature"
+  },
+  {
+    "question": "The play 'Death of a Salesman' was written by:",
+    "choices": ["Arthur Miller", "Tennessee Williams", "Eugene O’Neill", "Edward Albee"],
+    "answer": "Arthur Miller",
+    "explanation": "Miller’s play critiques the American Dream through Willy Loman’s downfall.",
+    "topic": "Literature"
+  },
+  {
+    "question": "Who wrote the poem 'Because I could not stop for Death'?",
+    "choices": ["Emily Dickinson", "Sylvia Plath", "Elizabeth Barrett Browning", "Anne Sexton"],
+    "answer": "Emily Dickinson",
+    "explanation": "Dickinson often personified death, as in this meditative poem.",
+    "topic": "Literature"
+  },
+  {
+    "question": "Which Shakespeare play features the character Shylock?",
+    "choices": ["The Merchant of Venice", "Othello", "Twelfth Night", "The Tempest"],
+    "answer": "The Merchant of Venice",
+    "explanation": "Shylock is the Jewish moneylender in this Shakespearean comedy-drama.",
+    "topic": "Literature"
+  },
+  {
+    "question": "Which author is famous for the dystopian novel '1984'?",
+    "choices": ["George Orwell", "Aldous Huxley", "Ray Bradbury", "Anthony Burgess"],
+    "answer": "George Orwell",
+    "explanation": "Orwell’s novel warns of totalitarianism and surveillance.",
+    "topic": "Literature"
+  },
+  {
+    "question": "The epic 'Paradise Lost' was written by:",
+    "choices": ["John Milton", "Geoffrey Chaucer", "Alexander Pope", "John Dryden"],
+    "answer": "John Milton",
+    "explanation": "Milton’s blank-verse epic recounts the Fall of Man and Satan’s rebellion.",
+    "topic": "Literature"
+  },
+  {
+    "question": "Which Filipino writer authored 'America Is in the Heart'?",
+    "choices": ["Carlos Bulosan", "Nick Joaquin", "Bienvenido Santos", "F. Sionil José"],
+    "answer": "Carlos Bulosan",
+    "explanation": "Bulosan’s semi-autobiographical work reflects Filipino immigrant struggles in America.",
+    "topic": "Literature"
+  },
+  {
+    "question": "Which novel is considered the first Gothic novel?",
+    "choices": ["The Castle of Otranto", "Frankenstein", "Dracula", "Wuthering Heights"],
+    "answer": "The Castle of Otranto",
+    "explanation": "Horace Walpole’s 1764 work established Gothic tropes like haunted castles and supernatural elements.",
+    "topic": "Literature"
+  },
+  {
+    "question": "Who wrote 'Things Fall Apart'?",
+    "choices": ["Chinua Achebe", "Ngũgĩ wa Thiong'o", "Wole Soyinka", "Ben Okri"],
+    "answer": "Chinua Achebe",
+    "explanation": "Achebe’s novel depicts Igbo society’s disruption by colonialism.",
+    "topic": "Literature"
+  },
+  {
+    "question": "The poet who wrote 'Leaves of Grass' is:",
+    "choices": ["Walt Whitman", "Emily Dickinson", "Robert Frost", "Henry Wadsworth Longfellow"],
+    "answer": "Walt Whitman",
+    "explanation": "Whitman celebrated democracy and individuality in his poetry collection.",
+    "topic": "Literature"
+  },
+  {
+    "question": "Which play features Blanche DuBois and Stanley Kowalski?",
+    "choices": ["A Streetcar Named Desire", "The Glass Menagerie", "Long Day’s Journey Into Night", "Cat on a Hot Tin Roof"],
+    "answer": "A Streetcar Named Desire",
+    "explanation": "Tennessee Williams’ play examines desire, delusion, and decline.",
+    "topic": "Literature"
+  },
+  {
+    "question": "Which author wrote 'The Stranger'?",
+    "choices": ["Albert Camus", "Jean-Paul Sartre", "Franz Kafka", "Fyodor Dostoevsky"],
+    "answer": "Albert Camus",
+    "explanation": "Camus’ novel is central to existentialist and absurdist thought.",
+    "topic": "Literature"
+  },
+  {
+    "question": "Which novel is set during the Great Depression and features George and Lennie?",
+    "choices": ["Of Mice and Men", "The Grapes of Wrath", "East of Eden", "Cannery Row"],
+    "answer": "Of Mice and Men",
+    "explanation": "Steinbeck’s novella explores friendship and dreams during hardship.",
+    "topic": "Literature"
+  },
+  {
+    "question": "Who is the author of 'Crime and Punishment'?",
+    "choices": ["Fyodor Dostoevsky", "Leo Tolstoy", "Anton Chekhov", "Ivan Turgenev"],
+    "answer": "Fyodor Dostoevsky",
+    "explanation": "Dostoevsky’s psychological novel examines guilt, morality, and redemption.",
+    "topic": "Literature"
+  },
+  {
+    "question": "Which novel begins with 'It was the best of times, it was the worst of times'?",
+    "choices": ["A Tale of Two Cities", "Great Expectations", "David Copperfield", "Oliver Twist"],
+    "answer": "A Tale of Two Cities",
+    "explanation": "Dickens’ novel contrasts revolution, sacrifice, and resurrection in London and Paris.",
+    "topic": "Literature"
+  },
+  {
+    "question": "Who wrote the epic 'Divine Comedy'?",
+    "choices": ["Dante Alighieri", "Petrarch", "Giovanni Boccaccio", "Ludovico Ariosto"],
+    "answer": "Dante Alighieri",
+    "explanation": "Dante’s allegorical journey through Hell, Purgatory, and Heaven shaped medieval literature.",
+    "topic": "Literature"
+  },
+  {
+    "question": "Who authored 'Beloved', a novel exploring slavery and memory?",
+    "choices": ["Toni Morrison", "Alice Walker", "Maya Angelou", "Zora Neale Hurston"],
+    "answer": "Toni Morrison",
+    "explanation": "Morrison’s Pulitzer Prize–winning novel deals with the haunting legacy of slavery.",
+    "topic": "Literature"
+  }
   ]
 };
+
 // Helpers
 const $ = (s, r=document)=> r.querySelector(s);
 const $$ = (s, r=document)=> [...r.querySelectorAll(s)];
@@ -406,6 +1665,29 @@ function shuffle(arr){
 
 function sample(arr, k){
   return shuffle(arr.slice()).slice(0, k);
+}
+
+// Function to populate topics dropdown dynamically
+function populateTopics() {
+  const topicSelect = $("#topic");
+  topicSelect.innerHTML = ""; // Clear existing options
+  
+  // Get unique topics from the question bank
+  const topics = [...new Set(state.pool.map(item => item.topic))].sort();
+  
+  // Add "All Topics" option first
+  const allOption = document.createElement("option");
+  allOption.value = "All";
+  allOption.textContent = "All Topics";
+  topicSelect.appendChild(allOption);
+  
+  // Add individual topic options
+  topics.forEach(topic => {
+    const option = document.createElement("option");
+    option.value = topic;
+    option.textContent = topic;
+    topicSelect.appendChild(option);
+  });
 }
 
 let tickId = null;
@@ -516,6 +1798,9 @@ function submit(){
 }
 
 (function init(){
+  // Populate topics dropdown on initialization
+  populateTopics();
+  
   // Load any unfinished session
   const saved = load();
   if(saved && saved.items?.length && !saved.finished){
@@ -527,7 +1812,7 @@ function submit(){
   // events
   $("#btn-start").addEventListener("click", ()=>{
     const topic = $("#topic").value;
-    const count = Math.max(10, Math.min(120, parseInt($("#count").value || "60")));
+    const count = Math.max(10, Math.min(500, parseInt($("#count").value || "60")));
     const minutes = Math.max(0, Math.min(240, parseInt($("#minutes").value || "0")));
 
     state.topic = topic;
@@ -582,6 +1867,8 @@ function submit(){
       if(!Array.isArray(data.items)) throw new Error("JSON must have { items: [...] }");
       state.bankTitle = data.title || "Custom Bank";
       state.pool = data.items;
+      // Repopulate topics when new data is loaded
+      populateTopics();
       alert("Custom questions loaded. Configure options and press Start.");
     }catch(err){
       alert("Import failed: " + err.message);
